@@ -1,60 +1,56 @@
-# Brikta IA
+# Brikta IA — Assistente de Obra
 
-> Serviço que concentra **toda** a inteligência artificial do Brikta — a plataforma de gestão de obras cuja porta de entrada é o **RDO por voz**: *"Mande um áudio. Receba o RDO pronto."*
+> **Pergunte sobre a sua obra, por texto ou por voz, e receba a resposta com a fonte.**
+> *"Quais dias choveu e atrapalhou a obra do Edifício Aurora em setembro?"* → *"Choveu em 1 dia de setembro no Edifício Aurora: 17/09, com chuva forte de manhã e chuva à tarde, e isso impactou o andamento."* — com o **RDO de 17/09** clicável.
 
-Este repositório é o serviço de orquestração de IA. Ele faz três coisas, todas apoiadas no mesmo núcleo de **agente + registro de ferramentas**:
+O **Assistente de Obra** é o foco deste repositório: um **agente** que responde perguntas sobre a obra cruzando RDOs, documentos, modelo BIM e dados externos autorizados — **sempre citando a fonte**, nunca inventando número, data ou ocorrência. A pergunta pode chegar escrita ou **falada** (voz → texto pelo mesmo STT que alimenta o RDO por voz).
 
-| Capacidade | O que faz | Como entra | Estado |
-|---|---|---|---|
-| **RDO por voz** | Áudio do canteiro → transcrição com glossário de obra → RDO estruturado (`RdoProposto`) → callback para o backend | `POST /v1/jobs/rdo-voz` (token de serviço) | MVP · pipeline **determinístico** (sem agente) |
-| **Assistente de Obra** | Agente que responde perguntas sobre a obra cruzando RDOs, documentos, BIM e dados externos — **sempre citando a fonte** | `POST /v1/assistente/...` (passe do usuário, resposta em SSE) | Protótipo funcional (IA-66) |
-| **Resumo IA** | Resumo diário da obra, gerado pelo **mesmo agente**, acionado pelo cron do backend | `POST /v1/jobs/resumo` (202 + callback HMAC) | Protótipo |
-| **Servidor MCP `brikta-dados`** | As mesmas ferramentas do Assistente expostas por MCP para ferramentas de IA externas (Claude, ChatGPT…) | SDK MCP | Planejado |
-
-> **Este documento foca no fluxo do agente** (inputs, lógica, outputs), que é o coração do Assistente de Obra e do Resumo IA. A seção [Fluxo do agente](#-fluxo-do-agente-inputs--lógica--outputs) é o guia principal.
+Ele vive dentro de um serviço que concentra toda a IA do Brikta. Os outros fluxos (RDO por voz, Resumo IA, servidor MCP) existem e estão resumidos em [Outros fluxos do serviço](#-outros-fluxos-do-serviço) — mas **a narrativa deste README é o Assistente**.
 
 ---
 
 ## 📑 Sumário
 
-- [Por que isto existe (contexto de negócio)](#-por-que-isto-existe-contexto-de-negócio)
-- [Arquitetura em um diagrama](#-arquitetura-em-um-diagrama)
+- [Por que um Assistente de Obra](#-por-que-um-assistente-de-obra)
+- [Como ele funciona (visão em um diagrama)](#-como-ele-funciona-visão-em-um-diagrama)
 - [Fluxo do agente: inputs → lógica → outputs](#-fluxo-do-agente-inputs--lógica--outputs)
+- [Perguntar por voz (STT)](#-perguntar-por-voz-stt)
 - [Segurança e isolamento](#-segurança-e-isolamento)
 - [Ferramentas do agente](#-ferramentas-do-agente)
 - [API e contratos](#-api-e-contratos)
 - [Como rodar](#-como-rodar)
 - [Estrutura do projeto](#-estrutura-do-projeto)
 - [Qualidade e testes](#-qualidade-e-testes)
+- [Outros fluxos do serviço](#-outros-fluxos-do-serviço)
 - [Documentação e diagramas](#-documentação-e-diagramas)
 
 ---
 
-## 🧭 Por que isto existe (contexto de negócio)
+## 🧭 Por que um Assistente de Obra
 
-O **RDO (Relatório Diário de Obra)** é obrigatório e consome tempo de quem está no canteiro. O mestre de obras narra o dia — com ruído de betoneira, sotaque e gíria — e o Brikta devolve o relatório estruturado para revisar. A partir desse histórico por obra nasce o **Assistente de Obra**: perguntas em linguagem natural ("quais dias choveu e atrapalhou o Edifício Aurora em setembro?") respondidas com dados reais e **fontes rastreáveis**.
+O **RDO (Relatório Diário de Obra)** é obrigatório e custa tempo de quem está no canteiro. O Brikta resolve a entrada com o **RDO por voz** — o mestre de obras narra o dia (com ruído de betoneira, sotaque e gíria) e recebe o relatório estruturado para revisar. Dia após dia, isso vira um **histórico rico por obra**.
 
-O diferencial não é "ter voz e IA" (isso já é commodity), e sim **qualidade em canteiro real**, **offline-first** e o **histórico por obra que vira contexto**. O custo técnico de IA é propositalmente baixo: entre **R$ 0,59 e R$ 1,52 por cliente/mês** (22 RDOs), conforme o cenário de fornecedor de STT + LLM. Detalhes em [`docs/`](docs/).
+Esse histórico é exatamente o que falta para responder, em segundos, perguntas que hoje exigem abrir dezenas de relatórios: *"como está a obra?"*, *"quantos dias de chuva no mês?"*, *"o que o memorial diz sobre o piso do 2º pavimento?"*. O **Assistente de Obra** transforma esse histórico em respostas em linguagem natural, **com rastreabilidade** — cada afirmação aponta para o RDO, documento, elemento BIM ou dado externo de onde veio.
 
-### Princípios que guiam o código
+### Princípios que guiam o agente
 
-- **A IA propõe, a pessoa confirma.** O serviço nunca é fonte da verdade: propõe; o backend decide e grava.
-- **Números vêm de código**, não do modelo (somas, médias, dias de chuva são calculados fora do LLM).
+- **A IA propõe, a pessoa confirma.** O Assistente **só lê**; nunca grava nada. Fonte da verdade é o backend.
+- **Números vêm de código**, não do modelo (somas, médias, dias de chuva são calculados fora do LLM e entregues prontos).
+- **Nada sem fonte:** o modelo só cita o que uma ferramenta devolveu naquela pergunta.
 - **Isolamento por empresa em código, nunca no prompt.**
-- **Tudo rastreável**: toda resposta carrega a fonte; nada é citado sem ter sido consultado.
-- **Falha da IA não bloqueia** o fluxo de obra.
+- **Falha da IA não bloqueia** o trabalho em obra.
 
 ---
 
-## 🗺️ Arquitetura em um diagrama
+## 🗺️ Como ele funciona (visão em um diagrama)
 
-Os dois fluxos que usam IA compartilham **o mesmo agente** e **o mesmo registro de ferramentas**: a pergunta do usuário ao Assistente (passe + SSE) e o Resumo IA (cron do backend + callback HMAC). No meio, o laço do agente.
+O Assistente em seis peças — borda (passe), agente, registro de ferramentas, ferramentas, verificação de citações e política de risco — com o backend, o banco e o provedor de LLM:
+
+![Componentes do Assistente de Obra (C4 nível 3, simplificado)](docs/arquitetura/IA_C4_3_Assistente_Simplificado.png)
+
+Uma pergunta do começo ao fim, lado a lado com o Resumo IA (que reaproveita **o mesmo agente e o mesmo registro de ferramentas**):
 
 ![Fluxo dos agentes da IA](docs/arquitetura/IA_Fluxo_Agentes.png)
-
-Visão de componentes do Assistente — borda (passe), agente, registro de ferramentas, ferramentas, verificação de citações e política de risco, com o backend, o banco e o provedor de LLM:
-
-![Componentes do Assistente (C4 nível 3, simplificado)](docs/arquitetura/IA_C4_3_Assistente_Simplificado.png)
 
 > Versão detalhada, com cada ferramenta aberta e as setas numeradas: [`docs/arquitetura/IA_C4_3_Assistente_Completo.png`](docs/arquitetura/IA_C4_3_Assistente_Completo.png). Legenda e como ler os diagramas: [`docs/arquitetura/README.md`](docs/arquitetura/README.md).
 
@@ -66,11 +62,11 @@ O agente é propositalmente **fino e independente de framework**. No protótipo 
 
 ### 1. Inputs — o que entra no agente
 
-Antes de o agente rodar, a **borda** monta e confere tudo (ver [Segurança](#-segurança-e-isolamento)). O agente recebe apenas dois argumentos neutros:
+Antes de o agente rodar, a **borda** monta e confere tudo (ver [Segurança](#-segurança-e-isolamento)). A pergunta pode chegar como **texto** ou como **voz transcrita** (ver [Perguntar por voz](#-perguntar-por-voz-stt)); em ambos os casos ela entra como a mensagem `user`. O agente recebe apenas dois argumentos neutros:
 
 | Input | Origem | Conteúdo |
 |---|---|---|
-| `mensagens: Sequence[MensagemTurno]` | `assistente/servico.py` | **system** (prompt versionado `assistente/v7` + contexto resolvido) + **histórico** (até 6 trocas anteriores) + **user** (a pergunta) |
+| `mensagens: Sequence[MensagemTurno]` | `assistente/servico.py` | **system** (prompt versionado `assistente/v7` + contexto resolvido) + **histórico** (até 6 trocas anteriores) + **user** (a pergunta, escrita ou transcrita da voz) |
 | `ferramentas: ExecucaoFerramentas` | registro + `ContextoExecucao` | definições das ferramentas (nome, descrição, JSON Schema) e o executor que valida e roda cada chamada |
 
 A mensagem **system** é montada em código (`assistente/contexto.py`) e injeta:
@@ -128,7 +124,7 @@ O agente emite **eventos neutros** (`TextoAgente`, `StatusAgente`, `CitacaoAgent
 | `fim` | Resposta concluída | `mensagem_id`, `conversa_id`, `uso` (`passos`, `tokens_entrada`, `tokens_saida`) |
 | `erro` | Falha depois de o fluxo abrir | `codigo`, `mensagem` |
 
-> Para o usuário, isso vira algo como: *"Choveu em 1 dia de setembro no Edifício Aurora: 17/09, com chuva forte de manhã e chuva à tarde, e isso impactou o andamento."* — com a fonte **RDO de 17/09** clicável (ao tocar, abre o RDO).
+O usuário vê a resposta surgir aos poucos, com as **fontes aparecendo sozinhas** à medida que são consultadas — e, ao tocar na fonte `RDO`, o app abre o RDO correspondente.
 
 **Observabilidade:** cada pergunta gera **um log** só com IDs, nº de passos, chamadas de ferramenta, duração e código de erro — **nunca o texto** (LGPD).
 
@@ -140,6 +136,28 @@ O agente emite **eventos neutros** (`TextoAgente`, `StatusAgente`, `CitacaoAgent
 
 ---
 
+## 🎙️ Perguntar por voz (STT)
+
+Em obra, digitar é incômodo — então a pergunta ao Assistente também pode ser **falada**. O áudio da pergunta passa pela **mesma camada de voz → texto** que alimenta o RDO por voz, e a transcrição vira o `texto` da mensagem `user` do agente:
+
+```
+🎤 pergunta falada
+   → normalização de áudio (ffmpeg)
+   → STT (providers/stt/, com o glossário de obra como dicas de vocabulário)
+   → texto da pergunta
+   → entra no agente como mensagem "user"  ──▶  mesmo fluxo da seção acima
+```
+
+Por que reaproveitar o STT do RDO por voz:
+
+- **Mesma qualidade em canteiro real.** O STT recebe o **glossário de obra** (`glossario/`) como `dicas` — termos como "contrapiso", "gradil", nomes de etapas — o que reduz erro de transcrição com ruído e sotaque.
+- **Provedor é detalhe.** A interface `SpeechToText` (`providers/stt/base.py`) abstrai Whisper, Deepgram ou Google; o nome do modelo vem da configuração (`STT_PROVEDOR`, `STT_MODELO`), nunca fixo no código. Em desenvolvimento, `STT_PROVEDOR=fake` transcreve sem rede.
+- **PT-BR por padrão**, com `idioma` e `dicas` passados a cada transcrição.
+
+> Estado: a camada de STT (interface + fake + glossário) já existe e é compartilhada com o pipeline de RDO por voz. O Assistente consome **texto**; uma pergunta por voz chega a ele como a transcrição — seja transcrita no app, seja pela mesma camada de STT no servidor.
+
+---
+
 ## 🔐 Segurança e isolamento
 
 As garantias ficam no **registro de ferramentas** e no **serviço**, não no prompt (que o modelo poderia ignorar):
@@ -147,11 +165,11 @@ As garantias ficam no **registro de ferramentas** e no **serviço**, não no pro
 - **Passe do Assistente (JWT HS256):** emitido pelo backend (`POST /api/v1/assistente/sessao`), conferido **localmente** a cada requisição com `IA_TICKET_SECRET` (o mesmo valor nos dois serviços; nunca o `JWT_SECRET` do login). Empresa, usuário, perfil e obras visíveis vêm do passe e viram o `ContextoExecucao`.
 - **`ContextoExecucao` nunca vem do modelo:** `empresa_id`, `usuario_id`, `obras_visiveis` e o JWT são injetados pelo registro. O modelo não os vê nem os escolhe.
 - **Toda `obra_id` / `obra_ids` é conferida** contra as obras visíveis do passe → fora disso, `AcessoNegado`.
-- **Somente leitura:** o registro **recusa** registrar qualquer ferramenta de escrita (ADR-11). Criar registro só via MCP, sempre como rascunho que a pessoa valida no Brikta.
+- **Somente leitura:** o registro **recusa** registrar qualquer ferramenta de escrita (ADR-11). Criação de registro só via MCP, sempre como rascunho que a pessoa valida no Brikta.
 - **Citações auditáveis:** só vira fonte um item que **alguma ferramenta devolveu nesta pergunta** — o modelo não consegue citar o que não consultou.
 - **Dono da conversa:** conversa de outra pessoa responde "não encontrada", sem revelar que existe.
 
-Se `IA_TICKET_SECRET` estiver vazio ou fraco, o serviço **sobe mesmo assim** (os jobs de RDO não dependem dele), mas o Assistente **recusa tudo** com aviso no log — nunca sobe aceitando passes forjáveis.
+Se `IA_TICKET_SECRET` estiver vazio ou fraco, o serviço **sobe mesmo assim** (os outros jobs não dependem dele), mas o Assistente **recusa tudo** com aviso no log — nunca sobe aceitando passes forjáveis.
 
 ---
 
@@ -173,15 +191,17 @@ No protótipo (`ASSISTENTE_FERRAMENTAS=mock`) os dados vêm de um **seed de demo
 
 ## 🔌 API e contratos
 
-| Rota | Método | Auth | O que faz |
-|---|---|---|---|
-| `/health` | GET | pública | Healthcheck (não toca banco nem provedores) |
-| `/v1/assistente/conversas` | POST | passe | Cria uma conversa (opcionalmente com `obra_id` e `contexto_inicial`) |
-| `/v1/assistente/conversas/{id}/mensagens` | POST | passe | Envia uma pergunta; resposta em **SSE** |
-| `/v1/jobs/resumo` | POST | token de serviço | Resumo IA (202 + callback HMAC) |
-| `/v1/jobs/rdo-voz`, `/v1/jobs/{id}` | POST/GET | token de serviço | RDO por voz (pipeline determinístico) |
+Rotas do Assistente (o app chama direto, com o passe no `Authorization`):
 
-Erros **antes** de o fluxo SSE abrir voltam como HTTP comum no formato do backend (`{statusCode, code, message}`); **depois**, só pelo evento `erro`. Os contratos versionados (fonte para o backend) estão em [`contracts/`](contracts/) e são gerados dos modelos Pydantic (`scripts/gerar_contratos.py`).
+| Rota | Método | O que faz |
+|---|---|---|
+| `/v1/assistente/conversas` | POST | Cria uma conversa (opcionalmente com `obra_id` e `contexto_inicial`) |
+| `/v1/assistente/conversas/{id}/mensagens` | POST | Envia uma pergunta; resposta em **SSE** |
+| `/health` | GET | Healthcheck (não toca banco nem provedores) |
+
+Erros **antes** de o fluxo SSE abrir voltam como HTTP comum no formato do backend (`{statusCode, code, message}`); **depois**, só pelo evento `erro`. Os contratos versionados (fonte para o backend) estão em [`contracts/`](contracts/) — `assistente_conversa.v1` (corpos HTTP) e `assistente_eventos.v1` (eventos SSE) — e são gerados dos modelos Pydantic (`scripts/gerar_contratos.py`).
+
+> As rotas de jobs (`/v1/jobs/*`) atendem o backend e estão em [Outros fluxos](#-outros-fluxos-do-serviço).
 
 ---
 
@@ -195,9 +215,9 @@ cp .env.sample .env                            # ajuste as variáveis (ver abaix
 uv run uvicorn brikta_ia.main:app --reload     # http://localhost:8000/health · docs em /docs
 ```
 
-Por padrão o `.env.sample` sobe com provedores **`fake`** (sem rede, respostas fixas) e ferramentas **`mock`** (seed de demonstração) — dá para explorar o fluxo sem chave de API.
+Por padrão o `.env.sample` sobe com provedores **`fake`** (LLM e STT sem rede, respostas fixas) e ferramentas **`mock`** (seed de demonstração) — dá para explorar o fluxo do agente sem chave de API.
 
-**Para ligar um LLM de verdade** (Groq ou outro provedor compatível com a API da OpenAI):
+**Para ligar um LLM de verdade** (Groq ou outro provedor compatível com a API da OpenAI) e habilitar o Assistente:
 
 ```bash
 LLM_ASSISTENTE_PROVEDOR=openai_compativel
@@ -208,11 +228,19 @@ LLM_ASSISTENTE_API_KEY=<sua-chave>
 IA_TICKET_SECRET=<32+ bytes>
 ```
 
+**Para perguntas por voz**, configure o STT (mesma camada do RDO por voz):
+
+```bash
+STT_PROVEDOR=openai            # ou deepgram / google; fake = sem rede
+STT_MODELO=whisper-1
+```
+
 Variáveis principais (todas em [`.env.sample`](.env.sample), com comentários):
 
 | Variável | Para quê | Padrão |
 |---|---|---|
 | `LLM_ASSISTENTE_PROVEDOR` | `fake` ou `openai_compativel` | `fake` |
+| `STT_PROVEDOR` | Voz → texto das perguntas faladas | `fake` |
 | `ASSISTENTE_FERRAMENTAS` | `mock` (seed) hoje; `backend` depois | `mock` |
 | `ASSISTENTE_MAX_PASSOS` | Limite de passos do agente | `4` |
 | `IA_TICKET_SECRET` | Segredo do passe (= backend) | vazio = Assistente desligado |
@@ -231,18 +259,18 @@ docker run -p 8000:8000 --env-file .env brikta-ia
 
 ```
 src/brikta_ia/
-  api/            rotas HTTP; auth de serviço; rotas do Assistente (SSE)
-  domain/         RdoProposto, contratos, estados do job, erros (sem I/O)
-  pipeline/       rdo_voz/ (determinístico) · resumo/ (usa o agente)
-  glossario/      dicas de STT, dicionário de correção, catálogo
-  assistente/
+  assistente/                 ◀── o Assistente de Obra
     agente/       laço do agente (interface + laco_proprio do protótipo)
     ferramentas/  RegistroFerramentas (porteiro) · ContextoExecucao · ferramentas de exemplo
     contexto.py   montagem do prompt de sistema (datas, perfil, obras)
     passe.py      conferência do JWT do passe
     servico.py    orquestra a conversa e traduz eventos → contrato SSE
-  servidor_mcp/   servidor MCP brikta-dados (mesmo registro)
   providers/      stt/ · llm/ · embeddings/ — único lugar que importa SDKs de modelo
+  api/            rotas HTTP; auth de serviço; rotas do Assistente (SSE)
+  domain/         RdoProposto, contratos, estados do job, erros (sem I/O)
+  pipeline/       rdo_voz/ (determinístico) · resumo/ (usa o agente)
+  glossario/      dicas de STT, dicionário de correção, catálogo
+  servidor_mcp/   servidor MCP brikta-dados (mesmo registro)
   integrations/   backend, storage, assinatura HMAC
   fila/ db/ observability/
 contracts/        JSON Schemas versionados (fonte para o backend)
@@ -264,7 +292,21 @@ uv run ruff check --fix . && uv run ruff format .  # lint e formatação
 uv run pyright                                     # tipos (estrito em domain/ e integrations/)
 ```
 
-Testes nunca fazem chamadas reais de rede — usam provedores **fake**. Chamadas reais só no conjunto de avaliação (`eval/`). Toda troca de modelo ou prompt exige **medir antes de otimizar** (ADR-10).
+Testes nunca fazem chamadas reais de rede — usam provedores **fake** (LLM e STT). Chamadas reais só no conjunto de avaliação (`eval/`). Toda troca de modelo ou prompt exige **medir antes de otimizar** (ADR-10).
+
+---
+
+## 🧩 Outros fluxos do serviço
+
+O mesmo serviço hospeda outros fluxos de IA, que compartilham peças com o Assistente (sobretudo o **registro de ferramentas** e a camada de **provedores**):
+
+| Fluxo | O que faz | Como entra | Relação com o Assistente |
+|---|---|---|---|
+| **RDO por voz** | Áudio do canteiro → transcrição com glossário → `RdoProposto` → callback ao backend | `POST /v1/jobs/rdo-voz` (token de serviço) | Gera o **histórico** que o Assistente consulta; divide a camada de **STT** |
+| **Resumo IA** | Resumo diário da obra, gerado pelo **mesmo agente e registro** | `POST /v1/jobs/resumo` (202 + callback HMAC) | É o Assistente rodando sem conversa, acionado por cron |
+| **Servidor MCP `brikta-dados`** | As ferramentas do Assistente expostas por MCP para ferramentas de IA externas (Claude, ChatGPT…) | SDK MCP | Mesmo **registro de ferramentas**, mesmas regras de isolamento |
+
+O RDO por voz é um **pipeline determinístico, sem agente** (ADR-07) — o oposto do Assistente de propósito. Detalhes em [`docs/VISAO_GERAL.md`](docs/VISAO_GERAL.md).
 
 ---
 
@@ -279,4 +321,4 @@ Testes nunca fazem chamadas reais de rede — usam provedores **fake**. Chamadas
 
 ---
 
-<sub>Projeto Brikta — AKCIT Camp. Serviço de IA (RDO por voz e Assistente de Obra).</sub>
+<sub>Projeto Brikta — AKCIT Camp. Assistente de Obra: pergunte sobre a obra, por texto ou voz, e receba a resposta com a fonte.</sub>
