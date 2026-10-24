@@ -1,0 +1,27 @@
+termo,variacoes_faladas,categoria,definicao_curta
+alvenaria,,servico,Parede de blocos ou tijolos assentados com argamassa
+chapisco,,servico,Primeira camada de argamassa para aderência do reboco
+reboco,massa grossa|emboço,servico,Camada de argamassa de regularização da parede
+contrapiso,contra piso,servico,Camada de argamassa que regulariza a laje antes do piso
+baldrame,viga baldrame,servico,Viga de fundação que apoia as paredes do térreo
+sapata,,servico,Elemento de fundação rasa que recebe a carga do pilar
+concretagem,concretar,servico,Lançamento do concreto nas fôrmas
+fôrma,forma,servico,Molde onde o concreto é lançado
+armação,armar|ferragem,servico,Montagem das barras de aço do concreto armado
+impermeabilização,impermeabilizar,servico,Proteção contra infiltração de água
+SINAPI,sina pi|sinap,referencia,Sistema Nacional de Pesquisa de Custos e Índices da Construção Civil
+CP-II,cp dois|cp 2,material,Tipo de cimento Portland composto
+brita 1,brita um,material,Pedra britada de granulometria 1
+areia média,,material,Areia de granulometria média para argamassa e concreto
+bloco cerâmico,tijolo baiano|tijolo furado,material,Bloco de cerâmica para alvenaria
+betoneira,,equipamento,Máquina para misturar concreto ou argamassa
+vibrador,vibrador de concreto,equipamento,Equipamento que adensa o concreto
+escora,escora metálica|pontalete,equipamento,Peça que sustenta fôrmas e lajes provisoriamente
+andaime,,equipamento,Estrutura provisória para trabalho em altura
+pedreiro,,funcao,Profissional de alvenaria e acabamentos
+servente,ajudante,funcao,Auxiliar geral de obra
+armador,,funcao,Profissional que monta a armação de aço
+carpinteiro,,funcao,Profissional de fôrmas e estruturas de madeira
+sc,saco|sacos,unidade,Saco (cimento e argamassa)
+m³,metro cúbico|metros cúbicos,unidade,Metro cúbico
+m²,metro quadrado|metros quadrados,unidade,Metro quadrado

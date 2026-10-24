@@ -1,0 +1,198 @@
+{
+  "$defs": {
+    "ErroAssistenteCodigo": {
+      "enum": [
+        "NAO_AUTENTICADO",
+        "TOKEN_EXPIRADO",
+        "CONVERSA_NAO_ENCONTRADA",
+        "OBRA_NAO_ENCONTRADA",
+        "MENSAGEM_EM_ANDAMENTO",
+        "DADOS_INVALIDOS",
+        "LIMITE_PASSOS",
+        "PROVEDOR_INDISPONIVEL",
+        "ERRO_INTERNO"
+      ],
+      "title": "ErroAssistenteCodigo",
+      "type": "string"
+    },
+    "EventoCitacao": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Id da fonte. Para RDO, o app abre o RDO por ele; nos demais é só referência.",
+          "title": "Id",
+          "type": "string"
+        },
+        "rotulo": {
+          "description": "Ex.: 'RDO 06/10', 'Memorial, p. 2', 'Modelo BIM · 2º pavimento'.",
+          "title": "Rotulo",
+          "type": "string"
+        },
+        "tipo": {
+          "enum": [
+            "RDO",
+            "DOCUMENTO",
+            "BIM",
+            "EXTERNO",
+            "BASE_TECNICA"
+          ],
+          "title": "Tipo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tipo",
+        "id",
+        "rotulo"
+      ],
+      "title": "EventoCitacao",
+      "type": "object"
+    },
+    "EventoErro": {
+      "additionalProperties": false,
+      "properties": {
+        "codigo": {
+          "$ref": "#/$defs/ErroAssistenteCodigo"
+        },
+        "mensagem": {
+          "title": "Mensagem",
+          "type": "string"
+        }
+      },
+      "required": [
+        "codigo",
+        "mensagem"
+      ],
+      "title": "EventoErro",
+      "type": "object"
+    },
+    "EventoFim": {
+      "additionalProperties": false,
+      "properties": {
+        "conversa_id": {
+          "title": "Conversa Id",
+          "type": "string"
+        },
+        "mensagem_id": {
+          "title": "Mensagem Id",
+          "type": "string"
+        },
+        "seguintes": {
+          "items": {
+            "$ref": "#/$defs/Sugestao"
+          },
+          "title": "Seguintes",
+          "type": "array"
+        },
+        "uso": {
+          "$ref": "#/$defs/Uso"
+        }
+      },
+      "required": [
+        "mensagem_id",
+        "conversa_id",
+        "uso"
+      ],
+      "title": "EventoFim",
+      "type": "object"
+    },
+    "EventoStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "etapa": {
+          "description": "Código estável da etapa, ex.: consultando_rdos.",
+          "title": "Etapa",
+          "type": "string"
+        },
+        "texto": {
+          "description": "O que mostrar ao usuário, ex.: 'Consultando RDOs…'.",
+          "title": "Texto",
+          "type": "string"
+        }
+      },
+      "required": [
+        "etapa",
+        "texto"
+      ],
+      "title": "EventoStatus",
+      "type": "object"
+    },
+    "EventoToken": {
+      "additionalProperties": false,
+      "properties": {
+        "texto": {
+          "description": "Trecho de texto, emendado ao anterior.",
+          "title": "Texto",
+          "type": "string"
+        }
+      },
+      "required": [
+        "texto"
+      ],
+      "title": "EventoToken",
+      "type": "object"
+    },
+    "Sugestao": {
+      "additionalProperties": false,
+      "properties": {
+        "texto": {
+          "title": "Texto",
+          "type": "string"
+        }
+      },
+      "required": [
+        "texto"
+      ],
+      "title": "Sugestao",
+      "type": "object"
+    },
+    "Uso": {
+      "additionalProperties": false,
+      "properties": {
+        "passos": {
+          "minimum": 0,
+          "title": "Passos",
+          "type": "integer"
+        },
+        "tokens_entrada": {
+          "minimum": 0,
+          "title": "Tokens Entrada",
+          "type": "integer"
+        },
+        "tokens_saida": {
+          "minimum": 0,
+          "title": "Tokens Saida",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "passos",
+        "tokens_entrada",
+        "tokens_saida"
+      ],
+      "title": "Uso",
+      "type": "object"
+    }
+  },
+  "$id": "assistente_eventos.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "$ref": "#/$defs/EventoStatus"
+    },
+    {
+      "$ref": "#/$defs/EventoToken"
+    },
+    {
+      "$ref": "#/$defs/EventoCitacao"
+    },
+    {
+      "$ref": "#/$defs/EventoFim"
+    },
+    {
+      "$ref": "#/$defs/EventoErro"
+    }
+  ],
+  "description": "O `data` de cada evento SSE. Qual modelo vale é dado pelo nome do evento (`event:`):\nstatus → EventoStatus, token → EventoToken, citacao → EventoCitacao, fim → EventoFim,\nerro → EventoErro. Eventos novos podem surgir: o app ignora os que não conhece.",
+  "title": "EventosAssistente"
+}

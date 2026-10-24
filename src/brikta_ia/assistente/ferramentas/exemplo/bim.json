@@ -1,0 +1,225 @@
+{
+  "modelo": "Modelo IFC (simulado)",
+  "elementos": [
+    {
+      "id": "bim-a1-1",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "Térreo",
+      "tipo": "PILAR",
+      "nome": "Pilares P1-P12",
+      "quantidade": 12,
+      "unidade": "un",
+      "status": "EXECUTADO"
+    },
+    {
+      "id": "bim-a1-2",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "Térreo",
+      "tipo": "LAJE",
+      "nome": "Laje L1",
+      "quantidade": 96,
+      "unidade": "m²",
+      "status": "EXECUTADO"
+    },
+    {
+      "id": "bim-a1-3",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "1º pavimento",
+      "tipo": "PILAR",
+      "nome": "Pilares P1-P12",
+      "quantidade": 12,
+      "unidade": "un",
+      "status": "EXECUTADO"
+    },
+    {
+      "id": "bim-a1-4",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "1º pavimento",
+      "tipo": "LAJE",
+      "nome": "Laje L2",
+      "quantidade": 96,
+      "unidade": "m²",
+      "status": "EXECUTADO"
+    },
+    {
+      "id": "bim-a1-5",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "2º pavimento",
+      "tipo": "PILAR",
+      "nome": "Pilares P1-P12",
+      "quantidade": 12,
+      "unidade": "un",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a1-6",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "2º pavimento",
+      "tipo": "LAJE",
+      "nome": "Laje L3",
+      "quantidade": 96,
+      "unidade": "m²",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a1-7",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "2º pavimento",
+      "tipo": "VIGA",
+      "nome": "Vigas V1-V9",
+      "quantidade": 9,
+      "unidade": "un",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a1-8",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "3º pavimento",
+      "tipo": "LAJE",
+      "nome": "Laje L4",
+      "quantidade": 96,
+      "unidade": "m²",
+      "status": "PROJETADO"
+    },
+    {
+      "id": "bim-a1-9",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "pavimento": "Térreo",
+      "tipo": "PAREDE",
+      "nome": "Alvenaria de vedação",
+      "quantidade": 210,
+      "unidade": "m²",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a2-1",
+      "obra_id": "de300000-0000-4000-8000-0000000000a2",
+      "pavimento": "4º pavimento",
+      "tipo": "PAREDE",
+      "nome": "Alvenaria 4º pav.",
+      "quantidade": 380,
+      "unidade": "m²",
+      "status": "EXECUTADO"
+    },
+    {
+      "id": "bim-a2-2",
+      "obra_id": "de300000-0000-4000-8000-0000000000a2",
+      "pavimento": "5º pavimento",
+      "tipo": "PAREDE",
+      "nome": "Alvenaria 5º pav.",
+      "quantidade": 380,
+      "unidade": "m²",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a2-3",
+      "obra_id": "de300000-0000-4000-8000-0000000000a2",
+      "pavimento": "5º pavimento",
+      "tipo": "ELETRICA",
+      "nome": "Eletrodutos 5º pav.",
+      "quantidade": 420,
+      "unidade": "m",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a2-4",
+      "obra_id": "de300000-0000-4000-8000-0000000000a2",
+      "pavimento": "6º pavimento",
+      "tipo": "PAREDE",
+      "nome": "Alvenaria 6º pav.",
+      "quantidade": 380,
+      "unidade": "m²",
+      "status": "PROJETADO"
+    },
+    {
+      "id": "bim-a2-5",
+      "obra_id": "de300000-0000-4000-8000-0000000000a2",
+      "pavimento": "Fachada",
+      "tipo": "REVESTIMENTO",
+      "nome": "Cerâmica de fachada",
+      "quantidade": 1450,
+      "unidade": "m²",
+      "status": "PROJETADO"
+    },
+    {
+      "id": "bim-a3-1",
+      "obra_id": "de300000-0000-4000-8000-0000000000a3",
+      "pavimento": "Fundação",
+      "tipo": "SAPATA",
+      "nome": "Sapatas S1-S14",
+      "quantidade": 14,
+      "unidade": "un",
+      "status": "EXECUTADO"
+    },
+    {
+      "id": "bim-a3-2",
+      "obra_id": "de300000-0000-4000-8000-0000000000a3",
+      "pavimento": "Fundação",
+      "tipo": "VIGA",
+      "nome": "Vigas baldrame",
+      "quantidade": 62,
+      "unidade": "m",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a3-3",
+      "obra_id": "de300000-0000-4000-8000-0000000000a3",
+      "pavimento": "Fundação",
+      "tipo": "IMPERMEABILIZACAO",
+      "nome": "Impermeabilização do baldrame",
+      "quantidade": 62,
+      "unidade": "m",
+      "status": "PROJETADO"
+    },
+    {
+      "id": "bim-a3-4",
+      "obra_id": "de300000-0000-4000-8000-0000000000a3",
+      "pavimento": "Térreo",
+      "tipo": "PAREDE",
+      "nome": "Alvenaria térreo",
+      "quantidade": 180,
+      "unidade": "m²",
+      "status": "PROJETADO"
+    },
+    {
+      "id": "bim-a4-1",
+      "obra_id": "de300000-0000-4000-8000-0000000000a4",
+      "pavimento": "Estrutura",
+      "tipo": "PILAR",
+      "nome": "Pilares pré-moldados",
+      "quantidade": 36,
+      "unidade": "un",
+      "status": "EM_EXECUCAO"
+    },
+    {
+      "id": "bim-a4-2",
+      "obra_id": "de300000-0000-4000-8000-0000000000a4",
+      "pavimento": "Estrutura",
+      "tipo": "VIGA",
+      "nome": "Vigas de cobertura",
+      "quantidade": 18,
+      "unidade": "un",
+      "status": "PROJETADO"
+    },
+    {
+      "id": "bim-a4-3",
+      "obra_id": "de300000-0000-4000-8000-0000000000a4",
+      "pavimento": "Piso",
+      "tipo": "LAJE",
+      "nome": "Piso industrial",
+      "quantidade": 4800,
+      "unidade": "m²",
+      "status": "PROJETADO"
+    },
+    {
+      "id": "bim-a4-4",
+      "obra_id": "de300000-0000-4000-8000-0000000000a4",
+      "pavimento": "Cobertura",
+      "tipo": "TELHA",
+      "nome": "Telha metálica",
+      "quantidade": 5200,
+      "unidade": "m²",
+      "status": "PROJETADO"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+@startuml IA_C4_3_Assistente_Completo
+' Serviço de IA — Componentes do Assistente de Obra, versão completa só do Assistente (sem RDO por voz, fila, STT).
+' out/2026 · Fonte: src/brikta_ia/assistente/ (servico, contexto, agente, ferramentas), prompt assistente/v4, ADR-06 revisado, ADR-07, ADR-11
+' <&check> = já existe no código. Amarelo = existe com dados de exemplo (ferramenta mock). Tracejado = planejado.
+!pragma layout smetana
+!include <C4/C4_Component>
+!include ../../../docs/03-arquitetura/_estilos/c4.iuml
+
+LAYOUT_TOP_DOWN()
+
+title Assistente de Obra — Componentes (C4 nível 3, só o Assistente)
+caption Verde 1–12: uma pergunta ao Assistente  ·  Amarelo = ferramenta com dados de exemplo  ·  Azul-escuro = segurança  ·  <&check> = já existe  ·  Tracejado = planejado
+
+Person(gestor, "Gestor · Fiscal · Operador", "Pergunta sobre a obra.")
+Container_Ext(app, "App Mobile", "React Native", "Chat do Assistente; mostra status, texto e fontes.")
+Container_Ext(backend, "Backend", "NestJS", "Emite o passe <&check>; rotas de leitura dos dados da obra (BE-51).")
+
+Container_Boundary(ia, "Serviço de IA — Assistente") {
+
+  Boundary(entrada, "Entrada", $tags="seguranca") {
+    Component(borda, "Borda e API", "FastAPI · api/assistente.py · SSE", "<&check> Confere o passe (assinatura, aud, validade) localmente; 401 TOKEN_EXPIRADO. Eventos: status, token, citacao, fim, erro. Limites e cota por plano: planejado.", $tags="seguranca")
+    Component(servico, "Serviço de conversa", "assistente/servico.py · conversas.py", "<&check> Conversa só do dono (usuário + empresa); obra em foco só se estiver no passe; mensagem idempotente e uma pergunta por vez; histórico no servidor (6 trocas); em memória no protótipo.")
+  }
+
+  Boundary(cerebro, "Agente") {
+    Component(prompt, "Prompt e contexto", "assistente/contexto.py · prompts/assistente/v4", "<&check> Papel, regras e estilo da resposta. Hoje, dia da semana, períodos (semana passada, ontem), perfil e obras visíveis entram por código, nunca calculados pelo modelo.")
+    Component(agente, "Agente", "laço próprio <&check> · framework na IA-64a", "Pensa, pede ferramenta, lê o resultado, responde. Até 4 passos (ASSISTENTE_MAX_PASSOS); estourou = LIMITE_PASSOS. Streaming de texto.", $tags="chave")
+    Component(risco, "Política de risco técnico", "classificador (RN59)", "Estrutural, segurança do trabalho, ART/RRT: orientação geral + fonte + 'confirme com o engenheiro responsável'. Hoje, só pelo prompt.", $tags="seguranca_futuro")
+    Component(cit, "Verificação de citações", "código nosso", "Citação inventada é removida; sem evidência: 'não encontrei nos registros'. Hoje o registro só anexa fontes que as ferramentas devolveram.", $tags="seguranca_futuro")
+  }
+
+  Boundary(ferramentas, "Ferramentas (somente leitura)") {
+    Component(reg, "Registro de ferramentas", "ferramentas/registro.py · execucao.py", "<&check> Porteiro: ferramenta existe e é só leitura; argumentos válidos (Pydantic); obra entre as visíveis do passe (senão AcessoNegado); timeout de 15 s. Resultado volta ao modelo como dado não confiável, com as citações.", $tags="seguranca")
+    Component(f_obras, "listar_obras", "ferramentas/exemplo.py", "<&check> Obras que a pessoa pode consultar.", $tags="mock")
+    Component(f_rdo, "consultar_rdos", "ferramentas/exemplo.py", "<&check> RDOs por período e obra: equipe, clima, ocorrências, totais prontos. Real pelo backend na BE-51.", $tags="mock")
+    Component(f_doc, "buscar_documentos · ler_pagina", "ferramentas/documentos.py", "<&check> Memorial, planta, contrato, ata e laudo: trechos com documento e página. Fonte DOCUMENTO.", $tags="mock")
+    Component(f_bim, "consultar_modelo_bim", "ferramentas/bim.py", "<&check> Elementos IFC simulados: pavimento, tipo, quantidade, status. Fonte BIM.", $tags="mock")
+    Component(f_mcp, "consultar_mcp", "ferramentas/mcp.py", "<&check> Servidor MCP simulado (clima, índices de custo); servidor ou ferramenta desconhecida = erro estruturado. Fonte EXTERNO.", $tags="mock")
+    Component(f_real, "Dados reais", "backend BE-51 · RAG pgvector · IfcOpenShell · MCP", "Trocam as ferramentas de exemplo pelo mesmo contrato; o registro e o agente não mudam.", $tags="futuro")
+  }
+}
+
+ContainerDb(iadb, "Postgres da IA", "PostgreSQL + pgvector", "Conversas, índice de documentos, trace de custo.", $tags="futuro")
+System_Ext(prov, "Provedor de LLM", "Compatível com OpenAI (Groq, gpt-oss-120b).")
+System_Ext(extmcp, "Serviços externos (MCP)", "Clima, índices, ERP", $tags="futuro")
+
+' ── caminho principal (1–12) ──
+Rel(gestor, app, "1. pergunta", $tags="fluxo")
+Rel(app, borda, "2. POST /mensagens (passe); resposta em SSE", $tags="fluxo")
+Rel(borda, servico, "3. pergunta + contexto do passe", $tags="fluxo")
+Rel(servico, prompt, "4. monta a mensagem de sistema", $tags="fluxo")
+Rel(servico, agente, "5. histórico + pergunta", $tags="fluxo")
+Rel(agente, prov, "6. LLM com ferramentas (turno)", "HTTPS · streaming", $tags="fluxo")
+Rel(agente, reg, "7. pede ferramenta por nome", $tags="fluxo")
+Rel(reg, f_rdo, "8. valida e executa (uma das ferramentas)", $tags="fluxo")
+Rel_U(f_rdo, backend, "9. dados da obra (BE-51; hoje: exemplo)", $tags="fluxo")
+Rel(reg, agente, "10. dados + citações; volta ao passo 6 até responder", $tags="fluxo")
+Rel(agente, cit, "11. resposta com fontes", $tags="fluxo")
+Rel_U(cit, borda, "12. texto e citações em SSE", $tags="fluxo")
+
+' ── demais relações ──
+Rel(backend, app, "passe do Assistente (POST /assistente/sessao)", $tags="async")
+Rel(reg, f_obras, "")
+Rel(reg, f_doc, "")
+Rel(reg, f_bim, "")
+Rel(reg, f_mcp, "")
+Rel(agente, risco, "tema de risco?", $tags="futuro")
+Rel(f_real, iadb, "busca nos textos e documentos (empresa e obra no SQL)", $tags="futuro")
+Rel(f_real, extmcp, "", $tags="futuro")
+Rel(servico, iadb, "conversas e trace", $tags="futuro")
+
+legend right
+  <b>Legenda</b>
+  |<#0F3D2A>      | pessoa |
+  |<#2F6F4E>      | outro contêiner do Brikta |
+  |<#E7F2EA>      | peça central |
+  |<#FFFFFF>      | componente (<&check> = já existe) |
+  |<#FBF3DC>      | ferramenta com dados de exemplo |
+  |<#E8EEF8>      | segurança (tracejado = prevista) |
+  |<#F1F3F2>      | planejado (tracejado) |
+  |<#175233>      | banco da IA |
+  |<#6B7570>      | serviço externo |
+  |<#1E8E3E>      | seta verde grossa: pergunta ao Assistente (1–12) |
+  |<#3B82C4>      | seta azul tracejada: assíncrono |
+endlegend
+@enduml

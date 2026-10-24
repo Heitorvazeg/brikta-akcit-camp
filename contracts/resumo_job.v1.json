@@ -1,0 +1,277 @@
+{
+  "$defs": {
+    "ObraFatos": {
+      "additionalProperties": false,
+      "properties": {
+        "etapa_atual": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Etapa Atual"
+        },
+        "nome": {
+          "title": "Nome",
+          "type": "string"
+        },
+        "obra_id": {
+          "title": "Obra Id",
+          "type": "string"
+        },
+        "progresso_percentual": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Progresso Percentual"
+        },
+        "rdos": {
+          "items": {
+            "$ref": "#/$defs/RdoFato"
+          },
+          "title": "Rdos",
+          "type": "array"
+        }
+      },
+      "required": [
+        "obra_id",
+        "nome"
+      ],
+      "title": "ObraFatos",
+      "type": "object"
+    },
+    "OcorrenciaFato": {
+      "additionalProperties": false,
+      "properties": {
+        "descricao": {
+          "title": "Descricao",
+          "type": "string"
+        },
+        "gravidade": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gravidade"
+        },
+        "impacto_cronograma": {
+          "default": false,
+          "title": "Impacto Cronograma",
+          "type": "boolean"
+        },
+        "tipo": {
+          "title": "Tipo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tipo",
+        "descricao"
+      ],
+      "title": "OcorrenciaFato",
+      "type": "object"
+    },
+    "RdoFato": {
+      "additionalProperties": false,
+      "properties": {
+        "atividades": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Atividades",
+          "type": "array"
+        },
+        "clima_impactou": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clima Impactou"
+        },
+        "clima_manha": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clima Manha"
+        },
+        "clima_tarde": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clima Tarde"
+        },
+        "data": {
+          "format": "date",
+          "title": "Data",
+          "type": "string"
+        },
+        "equipamentos_com_defeito": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Equipamentos Com Defeito",
+          "type": "array"
+        },
+        "materiais_em_falta": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Materiais Em Falta",
+          "type": "array"
+        },
+        "numero": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numero"
+        },
+        "ocorrencias": {
+          "items": {
+            "$ref": "#/$defs/OcorrenciaFato"
+          },
+          "title": "Ocorrencias",
+          "type": "array"
+        },
+        "pessoas": {
+          "description": "Pessoas na obra no dia (soma da equipe).",
+          "minimum": 0,
+          "title": "Pessoas",
+          "type": "integer"
+        },
+        "proximas_atividades": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Proximas Atividades",
+          "type": "array"
+        },
+        "rdo_id": {
+          "title": "Rdo Id",
+          "type": "string"
+        },
+        "situacao": {
+          "title": "Situacao",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rdo_id",
+        "data",
+        "situacao",
+        "pessoas"
+      ],
+      "title": "RdoFato",
+      "type": "object"
+    }
+  },
+  "$id": "resumo_job.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "data_referencia": {
+      "description": "Obra: o dia em que o resumo é gerado. Geral (semanal): a segunda-feira da semana em que é gerado; o período cobre a semana anterior.",
+      "format": "date",
+      "title": "Data Referencia",
+      "type": "string"
+    },
+    "empresa_id": {
+      "title": "Empresa Id",
+      "type": "string"
+    },
+    "escopo": {
+      "enum": [
+        "geral",
+        "obra"
+      ],
+      "title": "Escopo",
+      "type": "string"
+    },
+    "obra_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Obrigatório quando o escopo é 'obra'.",
+      "title": "Obra Id"
+    },
+    "obras": {
+      "items": {
+        "$ref": "#/$defs/ObraFatos"
+      },
+      "minItems": 1,
+      "title": "Obras",
+      "type": "array"
+    },
+    "periodo_fim": {
+      "format": "date",
+      "title": "Periodo Fim",
+      "type": "string"
+    },
+    "periodo_inicio": {
+      "format": "date",
+      "title": "Periodo Inicio",
+      "type": "string"
+    },
+    "versao_contrato": {
+      "const": "resumo_job.v1",
+      "default": "resumo_job.v1",
+      "title": "Versao Contrato",
+      "type": "string"
+    }
+  },
+  "required": [
+    "empresa_id",
+    "escopo",
+    "data_referencia",
+    "periodo_inicio",
+    "periodo_fim",
+    "obras"
+  ],
+  "title": "ResumoJob",
+  "type": "object"
+}

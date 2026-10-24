@@ -1,0 +1,305 @@
+{
+  "$defs": {
+    "Destaque": {
+      "additionalProperties": false,
+      "properties": {
+        "icone": {
+          "description": "Nome Ionicons usado pelo app.",
+          "title": "Icone",
+          "type": "string"
+        },
+        "rotulo": {
+          "title": "Rotulo",
+          "type": "string"
+        },
+        "valor": {
+          "title": "Valor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "icone",
+        "rotulo",
+        "valor"
+      ],
+      "title": "Destaque",
+      "type": "object"
+    },
+    "FonteRdo": {
+      "additionalProperties": false,
+      "properties": {
+        "rdo_id": {
+          "title": "Rdo Id",
+          "type": "string"
+        },
+        "rotulo": {
+          "title": "Rotulo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rotulo",
+        "rdo_id"
+      ],
+      "title": "FonteRdo",
+      "type": "object"
+    },
+    "MetadadosResumo": {
+      "additionalProperties": false,
+      "properties": {
+        "latencia_ms": {
+          "default": 0,
+          "title": "Latencia Ms",
+          "type": "integer"
+        },
+        "modelo": {
+          "title": "Modelo",
+          "type": "string"
+        },
+        "passos": {
+          "default": 0,
+          "title": "Passos",
+          "type": "integer"
+        },
+        "tokens_entrada": {
+          "default": 0,
+          "title": "Tokens Entrada",
+          "type": "integer"
+        },
+        "tokens_saida": {
+          "default": 0,
+          "title": "Tokens Saida",
+          "type": "integer"
+        },
+        "versao_prompt": {
+          "title": "Versao Prompt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "versao_prompt",
+        "modelo"
+      ],
+      "title": "MetadadosResumo",
+      "type": "object"
+    },
+    "OutraFonte": {
+      "additionalProperties": false,
+      "properties": {
+        "rotulo": {
+          "title": "Rotulo",
+          "type": "string"
+        },
+        "tipo": {
+          "enum": [
+            "DOCUMENTO",
+            "BIM",
+            "EXTERNO"
+          ],
+          "title": "Tipo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tipo",
+        "rotulo"
+      ],
+      "title": "OutraFonte",
+      "type": "object"
+    },
+    "ResumoConteudo": {
+      "additionalProperties": false,
+      "properties": {
+        "alertas": {
+          "items": {
+            "items": {
+              "$ref": "#/$defs/Trecho"
+            },
+            "type": "array"
+          },
+          "title": "Alertas",
+          "type": "array"
+        },
+        "base_rdos": {
+          "minimum": 0,
+          "title": "Base Rdos",
+          "type": "integer"
+        },
+        "destaques": {
+          "items": {
+            "$ref": "#/$defs/Destaque"
+          },
+          "title": "Destaques",
+          "type": "array"
+        },
+        "fontes": {
+          "items": {
+            "$ref": "#/$defs/FonteRdo"
+          },
+          "title": "Fontes",
+          "type": "array"
+        },
+        "gerado_em": {
+          "format": "date-time",
+          "title": "Gerado Em",
+          "type": "string"
+        },
+        "outras_fontes": {
+          "items": {
+            "$ref": "#/$defs/OutraFonte"
+          },
+          "title": "Outras Fontes",
+          "type": "array"
+        },
+        "periodo": {
+          "title": "Periodo",
+          "type": "string"
+        },
+        "proximos": {
+          "items": {
+            "items": {
+              "$ref": "#/$defs/Trecho"
+            },
+            "type": "array"
+          },
+          "title": "Proximos",
+          "type": "array"
+        },
+        "texto": {
+          "items": {
+            "$ref": "#/$defs/Trecho"
+          },
+          "title": "Texto",
+          "type": "array"
+        }
+      },
+      "required": [
+        "periodo",
+        "base_rdos",
+        "gerado_em",
+        "texto"
+      ],
+      "title": "ResumoConteudo",
+      "type": "object"
+    },
+    "Trecho": {
+      "additionalProperties": false,
+      "properties": {
+        "s": {
+          "anyOf": [
+            {
+              "enum": [
+                "num",
+                "b",
+                "mark"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "S"
+        },
+        "t": {
+          "title": "T",
+          "type": "string"
+        }
+      },
+      "required": [
+        "t"
+      ],
+      "title": "Trecho",
+      "type": "object"
+    }
+  },
+  "$id": "resumo_resultado.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "data_referencia": {
+      "format": "date",
+      "title": "Data Referencia",
+      "type": "string"
+    },
+    "empresa_id": {
+      "title": "Empresa Id",
+      "type": "string"
+    },
+    "erro_mensagem": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Erro Mensagem"
+    },
+    "escopo": {
+      "enum": [
+        "geral",
+        "obra"
+      ],
+      "title": "Escopo",
+      "type": "string"
+    },
+    "job_id": {
+      "title": "Job Id",
+      "type": "string"
+    },
+    "metadados": {
+      "$ref": "#/$defs/MetadadosResumo"
+    },
+    "obra_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Obra Id"
+    },
+    "resumo": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ResumoConteudo"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "status": {
+      "enum": [
+        "CONCLUIDO",
+        "FALHOU"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "versao_contrato": {
+      "const": "resumo_resultado.v1",
+      "default": "resumo_resultado.v1",
+      "title": "Versao Contrato",
+      "type": "string"
+    }
+  },
+  "required": [
+    "job_id",
+    "empresa_id",
+    "escopo",
+    "data_referencia",
+    "status",
+    "metadados"
+  ],
+  "title": "ResumoResultado",
+  "type": "object"
+}

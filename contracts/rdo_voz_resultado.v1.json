@@ -1,0 +1,882 @@
+{
+  "$defs": {
+    "Atividade": {
+      "additionalProperties": false,
+      "properties": {
+        "descricao": {
+          "title": "Descricao",
+          "type": "string"
+        },
+        "evidencia": {
+          "$ref": "#/$defs/Evidencia"
+        },
+        "id_local": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Preenchido por código (vínculo de fotos).",
+          "title": "Id Local"
+        },
+        "local_obra": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Local Obra"
+        },
+        "progresso_percentual": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Progresso Percentual"
+        },
+        "ref_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "id de item JÁ EXISTENTE no RDO atual que este item atualiza; null = novo.",
+          "title": "Ref Id"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "enum": [
+                "INICIADA",
+                "EM_ANDAMENTO",
+                "CONCLUIDA"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Status"
+        }
+      },
+      "required": [
+        "evidencia",
+        "descricao"
+      ],
+      "title": "Atividade",
+      "type": "object"
+    },
+    "CampoIncerto": {
+      "additionalProperties": false,
+      "properties": {
+        "caminho": {
+          "description": "Ex.: \"equipes[1].quantidade\", \"clima.tarde\".",
+          "title": "Caminho",
+          "type": "string"
+        },
+        "motivo": {
+          "enum": [
+            "BAIXA_CONFIANCA_STT",
+            "AMBIGUO",
+            "NAO_CASOU_CATALOGO",
+            "VALOR_IMPLAUSIVEL",
+            "SEM_EVIDENCIA",
+            "MODELO_INCERTO"
+          ],
+          "title": "Motivo",
+          "type": "string"
+        },
+        "sugestoes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Sugestoes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "caminho",
+        "motivo"
+      ],
+      "title": "CampoIncerto",
+      "type": "object"
+    },
+    "Clima": {
+      "additionalProperties": false,
+      "properties": {
+        "impactou_atividades": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Impactou Atividades"
+        },
+        "manha": {
+          "anyOf": [
+            {
+              "enum": [
+                "SOL",
+                "NUBLADO",
+                "CHUVA",
+                "CHUVA_FORTE"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manha"
+        },
+        "tarde": {
+          "anyOf": [
+            {
+              "enum": [
+                "SOL",
+                "NUBLADO",
+                "CHUVA",
+                "CHUVA_FORTE"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tarde"
+        }
+      },
+      "title": "Clima",
+      "type": "object"
+    },
+    "Correcao": {
+      "additionalProperties": false,
+      "properties": {
+        "de": {
+          "title": "De",
+          "type": "string"
+        },
+        "para": {
+          "title": "Para",
+          "type": "string"
+        }
+      },
+      "required": [
+        "de",
+        "para"
+      ],
+      "title": "Correcao",
+      "type": "object"
+    },
+    "Equipamento": {
+      "additionalProperties": false,
+      "properties": {
+        "equipamento_catalogo_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Preenchido por código.",
+          "title": "Equipamento Catalogo Id"
+        },
+        "evidencia": {
+          "$ref": "#/$defs/Evidencia"
+        },
+        "horimetro_final": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Horimetro Final"
+        },
+        "horimetro_inicial": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Horimetro Inicial"
+        },
+        "nome": {
+          "title": "Nome",
+          "type": "string"
+        },
+        "ref_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "id de item JÁ EXISTENTE no RDO atual que este item atualiza; null = novo.",
+          "title": "Ref Id"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "enum": [
+                "EM_USO",
+                "DISPONIVEL",
+                "COM_DEFEITO"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Status"
+        }
+      },
+      "required": [
+        "evidencia",
+        "nome"
+      ],
+      "title": "Equipamento",
+      "type": "object"
+    },
+    "Equipe": {
+      "additionalProperties": false,
+      "properties": {
+        "evidencia": {
+          "$ref": "#/$defs/Evidencia"
+        },
+        "funcao": {
+          "title": "Funcao",
+          "type": "string"
+        },
+        "funcao_catalogo_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Preenchido por código.",
+          "title": "Funcao Catalogo Id"
+        },
+        "horas_trabalhadas": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Horas Trabalhadas"
+        },
+        "quantidade": {
+          "minimum": 0,
+          "title": "Quantidade",
+          "type": "integer"
+        },
+        "ref_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "id de item JÁ EXISTENTE no RDO atual que este item atualiza; null = novo.",
+          "title": "Ref Id"
+        }
+      },
+      "required": [
+        "evidencia",
+        "funcao",
+        "quantidade"
+      ],
+      "title": "Equipe",
+      "type": "object"
+    },
+    "ErroCodigo": {
+      "enum": [
+        "AUDIO_INVALIDO",
+        "AUDIO_LONGO",
+        "AUDIO_SEM_FALA",
+        "STT_INDISPONIVEL",
+        "EXTRACAO_FALHOU",
+        "LIMITE_EXCEDIDO",
+        "ERRO_INTERNO"
+      ],
+      "title": "ErroCodigo",
+      "type": "string"
+    },
+    "Evidencia": {
+      "additionalProperties": false,
+      "properties": {
+        "fim_seg": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Preenchido por código (segmentos do STT).",
+          "title": "Fim Seg"
+        },
+        "inicio_seg": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Preenchido por código (segmentos do STT).",
+          "title": "Inicio Seg"
+        },
+        "trecho": {
+          "description": "Substring LITERAL da transcrição normalizada que justifica o item.",
+          "title": "Trecho",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trecho"
+      ],
+      "title": "Evidencia",
+      "type": "object"
+    },
+    "Latencias": {
+      "additionalProperties": false,
+      "properties": {
+        "extracao": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extracao"
+        },
+        "stt": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stt"
+        },
+        "total": {
+          "title": "Total",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "total"
+      ],
+      "title": "Latencias",
+      "type": "object"
+    },
+    "Material": {
+      "additionalProperties": false,
+      "properties": {
+        "descricao": {
+          "title": "Descricao",
+          "type": "string"
+        },
+        "evento": {
+          "enum": [
+            "RECEBIDO",
+            "UTILIZADO",
+            "EM_FALTA"
+          ],
+          "title": "Evento",
+          "type": "string"
+        },
+        "evidencia": {
+          "$ref": "#/$defs/Evidencia"
+        },
+        "material_catalogo_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Preenchido por código.",
+          "title": "Material Catalogo Id"
+        },
+        "quantidade": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quantidade"
+        },
+        "ref_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "id de item JÁ EXISTENTE no RDO atual que este item atualiza; null = novo.",
+          "title": "Ref Id"
+        },
+        "unidade": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unidade"
+        }
+      },
+      "required": [
+        "evidencia",
+        "descricao",
+        "evento"
+      ],
+      "title": "Material",
+      "type": "object"
+    },
+    "Metadados": {
+      "additionalProperties": false,
+      "properties": {
+        "custo_usd": {
+          "title": "Custo Usd",
+          "type": "number"
+        },
+        "latencia_ms": {
+          "$ref": "#/$defs/Latencias"
+        },
+        "llm": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MetadadosLlm"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "stt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MetadadosStt"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "versao_pipeline": {
+          "title": "Versao Pipeline",
+          "type": "string"
+        }
+      },
+      "required": [
+        "versao_pipeline",
+        "custo_usd",
+        "latencia_ms"
+      ],
+      "title": "Metadados",
+      "type": "object"
+    },
+    "MetadadosLlm": {
+      "additionalProperties": false,
+      "properties": {
+        "modelo": {
+          "title": "Modelo",
+          "type": "string"
+        },
+        "provedor": {
+          "title": "Provedor",
+          "type": "string"
+        },
+        "tokens_entrada": {
+          "title": "Tokens Entrada",
+          "type": "integer"
+        },
+        "tokens_saida": {
+          "title": "Tokens Saida",
+          "type": "integer"
+        },
+        "versao_prompt": {
+          "title": "Versao Prompt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provedor",
+        "modelo",
+        "versao_prompt",
+        "tokens_entrada",
+        "tokens_saida"
+      ],
+      "title": "MetadadosLlm",
+      "type": "object"
+    },
+    "MetadadosStt": {
+      "additionalProperties": false,
+      "properties": {
+        "duracao_audio_seg": {
+          "title": "Duracao Audio Seg",
+          "type": "number"
+        },
+        "modelo": {
+          "title": "Modelo",
+          "type": "string"
+        },
+        "provedor": {
+          "title": "Provedor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provedor",
+        "modelo",
+        "duracao_audio_seg"
+      ],
+      "title": "MetadadosStt",
+      "type": "object"
+    },
+    "Ocorrencia": {
+      "additionalProperties": false,
+      "properties": {
+        "descricao": {
+          "title": "Descricao",
+          "type": "string"
+        },
+        "evidencia": {
+          "$ref": "#/$defs/Evidencia"
+        },
+        "gravidade": {
+          "enum": [
+            "BAIXA",
+            "MEDIA",
+            "ALTA"
+          ],
+          "title": "Gravidade",
+          "type": "string"
+        },
+        "impacto_cronograma": {
+          "title": "Impacto Cronograma",
+          "type": "boolean"
+        },
+        "ref_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "id de item JÁ EXISTENTE no RDO atual que este item atualiza; null = novo.",
+          "title": "Ref Id"
+        },
+        "tipo": {
+          "enum": [
+            "ATRASO_MATERIAL",
+            "CLIMA",
+            "ACIDENTE",
+            "PROBLEMA_EXECUCAO",
+            "FALTA_MAO_DE_OBRA",
+            "EQUIPAMENTO",
+            "OUTRO"
+          ],
+          "title": "Tipo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidencia",
+        "tipo",
+        "descricao",
+        "gravidade",
+        "impacto_cronograma"
+      ],
+      "title": "Ocorrencia",
+      "type": "object"
+    },
+    "RdoProposto": {
+      "additionalProperties": false,
+      "properties": {
+        "atividades": {
+          "items": {
+            "$ref": "#/$defs/Atividade"
+          },
+          "title": "Atividades",
+          "type": "array"
+        },
+        "campos_incertos": {
+          "items": {
+            "$ref": "#/$defs/CampoIncerto"
+          },
+          "title": "Campos Incertos",
+          "type": "array"
+        },
+        "clima": {
+          "$ref": "#/$defs/Clima"
+        },
+        "equipamentos": {
+          "items": {
+            "$ref": "#/$defs/Equipamento"
+          },
+          "title": "Equipamentos",
+          "type": "array"
+        },
+        "equipes": {
+          "items": {
+            "$ref": "#/$defs/Equipe"
+          },
+          "title": "Equipes",
+          "type": "array"
+        },
+        "materiais": {
+          "items": {
+            "$ref": "#/$defs/Material"
+          },
+          "title": "Materiais",
+          "type": "array"
+        },
+        "narrativa": {
+          "description": "Texto corrido do dia → rdos.texto_gerado_ia.",
+          "title": "Narrativa",
+          "type": "string"
+        },
+        "observacoes_gerais": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observacoes Gerais"
+        },
+        "ocorrencias": {
+          "items": {
+            "$ref": "#/$defs/Ocorrencia"
+          },
+          "title": "Ocorrencias",
+          "type": "array"
+        },
+        "proximas_atividades": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Proximas Atividades"
+        },
+        "versao_schema": {
+          "const": "rdo_proposto.v1",
+          "default": "rdo_proposto.v1",
+          "title": "Versao Schema",
+          "type": "string"
+        }
+      },
+      "required": [
+        "narrativa"
+      ],
+      "title": "RdoProposto",
+      "type": "object"
+    },
+    "Transcricao": {
+      "additionalProperties": false,
+      "properties": {
+        "bruta": {
+          "title": "Bruta",
+          "type": "string"
+        },
+        "correcoes": {
+          "items": {
+            "$ref": "#/$defs/Correcao"
+          },
+          "title": "Correcoes",
+          "type": "array"
+        },
+        "normalizada": {
+          "title": "Normalizada",
+          "type": "string"
+        }
+      },
+      "required": [
+        "bruta",
+        "normalizada"
+      ],
+      "title": "Transcricao",
+      "type": "object"
+    }
+  },
+  "$id": "rdo_voz_resultado.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "empresa_id": {
+      "title": "Empresa Id",
+      "type": "string"
+    },
+    "erro_codigo": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ErroCodigo"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "gravacao_id": {
+      "title": "Gravacao Id",
+      "type": "string"
+    },
+    "job_id": {
+      "title": "Job Id",
+      "type": "string"
+    },
+    "metadados": {
+      "$ref": "#/$defs/Metadados"
+    },
+    "rdo_local_id": {
+      "title": "Rdo Local Id",
+      "type": "string"
+    },
+    "rdo_proposto": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RdoProposto"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "status": {
+      "enum": [
+        "CONCLUIDO",
+        "CONCLUIDO_PARCIAL",
+        "FALHOU"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "transcricao": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Transcricao"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "versao_contrato": {
+      "const": "rdo_voz_resultado.v1",
+      "default": "rdo_voz_resultado.v1",
+      "title": "Versao Contrato",
+      "type": "string"
+    }
+  },
+  "required": [
+    "job_id",
+    "gravacao_id",
+    "empresa_id",
+    "rdo_local_id",
+    "status",
+    "metadados"
+  ],
+  "title": "RdoVozResultado",
+  "type": "object"
+}

@@ -1,0 +1,6402 @@
+{
+ "origem": "seed da demonstração do backend (seed:demonstracao + seed:demonstracao:volume)",
+ "hoje_demonstracao": "2026-10-20",
+ "obras": [
+  {
+   "id": "de300000-0000-4000-8000-0000000000a1",
+   "nome": "Residencial Ipê Amarelo",
+   "unidade": "Bloco A",
+   "cidade": "Goiânia - GO",
+   "etapa_atual": "Estrutura - Laje 2º Pav.",
+   "progresso": 68,
+   "responsavel": "Rafael Moura"
+  },
+  {
+   "id": "de300000-0000-4000-8000-0000000000a2",
+   "nome": "Edifício Aurora",
+   "unidade": "Torre 1",
+   "cidade": "Aparecida de Goiânia - GO",
+   "etapa_atual": "Alvenaria - 5º Pav.",
+   "progresso": 42,
+   "responsavel": "Renata Siqueira"
+  },
+  {
+   "id": "de300000-0000-4000-8000-0000000000a3",
+   "nome": "Casa Recanto do Lago",
+   "unidade": null,
+   "cidade": "Senador Canedo - GO",
+   "etapa_atual": "Fundação - Baldrame",
+   "progresso": 25,
+   "responsavel": "Juliano Rocha"
+  },
+  {
+   "id": "de300000-0000-4000-8000-0000000000a4",
+   "nome": "Galpão Logístico Anhanguera",
+   "unidade": "Galpão 2",
+   "cidade": "Trindade - GO",
+   "etapa_atual": "Estrutura - Pilares pré-moldados",
+   "progresso": 35,
+   "responsavel": "Renata Siqueira"
+  }
+ ],
+ "rdos": [
+  {
+   "id": "demo-a1-2026-09-26",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 1,
+   "data": "2026-09-26",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 10,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 35.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tijolo cerâmico 9 furos",
+     "quantidade": 25.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 18.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Desforma e limpeza das escoras"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-09-28",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 2,
+   "data": "2026-09-28",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 20,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Bloco de concreto 14 cm",
+     "quantidade": 9.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 6.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 39.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem de pilares",
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-09-29",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 3,
+   "data": "2026-09-29",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 10,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Encanador",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Bomba de concreto",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 10.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 4.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Atraso de material",
+     "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-09-30",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 4,
+   "data": "2026-09-30",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 17,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 7,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 25.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Desforma e limpeza das escoras",
+    "Montagem de formas da laje"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-01",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 5,
+   "data": "2026-10-01",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 9,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Montagem de formas da laje",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 25.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem de formas da laje"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-02",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 6,
+   "data": "2026-10-02",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 10,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-60 5 mm",
+     "quantidade": 6.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 32.0,
+     "unidade": "m",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Alvenaria de vedação",
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-03",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 7,
+   "data": "2026-10-03",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 7,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem de formas da laje",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Brita 1",
+     "quantidade": 4.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Desforma e limpeza das escoras"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-05",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 8,
+   "data": "2026-10-05",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 7,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Cremalheira de obra",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 12.0,
+     "unidade": "kg",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Tijolo cerâmico 9 furos",
+     "quantidade": 11.0,
+     "unidade": "un",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 23.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem de formas da laje",
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-10-06",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 9,
+   "data": "2026-10-06",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 11,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 7,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Caminhão betoneira",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 10.0,
+     "unidade": "sc",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 19.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-07",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 10,
+   "data": "2026-10-07",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 38.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 22.0,
+     "unidade": "lata",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Alvenaria de vedação"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Chuva / condição climática",
+     "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": true
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-10-08",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 11,
+   "data": "2026-10-08",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Montagem de formas da laje",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Vibrador de imersão",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 10.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 6.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem de pilares",
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-10-09",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 12,
+   "data": "2026-10-09",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 8,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Cremalheira de obra",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 25.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 38.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 33.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem de pilares"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-10-10",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 13,
+   "data": "2026-10-10",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 9,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Brita 1",
+     "quantidade": 19.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 2.0,
+     "unidade": "lata",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-12",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 14,
+   "data": "2026-10-12",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 14,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem de formas da laje",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Compactador de solo (sapo)",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 23.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Desforma e limpeza das escoras",
+    "Alvenaria de vedação"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-13",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 15,
+   "data": "2026-10-13",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 9,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Tijolo cerâmico 9 furos",
+     "quantidade": 20.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 11.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem de formas da laje",
+    "Desforma e limpeza das escoras"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Atraso de material",
+     "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-10-14",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 16,
+   "data": "2026-10-14",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 8,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 20.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 32.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 18.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Desforma e limpeza das escoras"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Chuva / condição climática",
+     "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": true
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-10-15",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 17,
+   "data": "2026-10-15",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 15,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Montagem de formas da laje",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Guincho de coluna",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 8.0,
+     "unidade": "sc",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 15.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 26.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Alvenaria de vedação",
+    "Armação de vigas e lajes"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-16",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 18,
+   "data": "2026-10-16",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 14,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Alvenaria de vedação",
+     "local": "Térreo",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Compactador de solo (sapo)",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 37.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem de formas da laje",
+    "Concretagem de pilares"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a1-2026-10-17",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 19,
+   "data": "2026-10-17",
+   "autor": "Juliano Rocha",
+   "status": "AGUARDANDO_VALIDACAO",
+   "equipe": 7,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem de pilares",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Montagem de formas da laje",
+     "local": "2º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Caminhão betoneira",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 29.0,
+     "unidade": "sc",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Desforma e limpeza das escoras",
+    "Concretagem de pilares"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Falta de energia",
+     "descricao": "Queda de energia na rede da concessionária pela manhã.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a1-2026-10-19",
+   "obra_id": "de300000-0000-4000-8000-0000000000a1",
+   "numero": 20,
+   "data": "2026-10-19",
+   "autor": "Juliano Rocha",
+   "status": "PREENCHENDO",
+   "equipe": 0,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação de vigas e lajes",
+     "local": "2º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Desforma e limpeza das escoras",
+     "local": "1º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [],
+   "equipamentos": [],
+   "materiais": [],
+   "proximas_atividades": [],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-09-26",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 1,
+   "data": "2026-09-26",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 16,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Caminhão basculante",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 38.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 11.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Chapisco e reboco interno"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a2-2026-09-28",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 2,
+   "data": "2026-09-28",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 6,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Encanador",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Serra circular de bancada",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 22.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Conferência de prumo e nível"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-09-29",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 3,
+   "data": "2026-09-29",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 8,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Guincho de coluna",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-60 5 mm",
+     "quantidade": 35.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tijolo cerâmico 9 furos",
+     "quantidade": 39.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem do andaime fachadeiro"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Chuva / condição climática",
+     "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": true
+    }
+   ]
+  },
+  {
+   "id": "demo-a2-2026-09-30",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 4,
+   "data": "2026-09-30",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 7,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Encanador",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Guincho de coluna",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Brita 1",
+     "quantidade": 20.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 37.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem do andaime fachadeiro"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-01",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 5,
+   "data": "2026-10-01",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 3,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Compactador de solo (sapo)",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Retroescavadeira JCB 3C",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-60 5 mm",
+     "quantidade": 28.0,
+     "unidade": "kg",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 10.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 17.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem do andaime fachadeiro",
+    "Elevação de alvenaria de vedação"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-02",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 6,
+   "data": "2026-10-02",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 19,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Pintor",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 7,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Brita 1",
+     "quantidade": 40.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 12.0,
+     "unidade": "un",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem do andaime fachadeiro"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-03",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 7,
+   "data": "2026-10-03",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 3,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Brita 1",
+     "quantidade": 19.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 30.0,
+     "unidade": "un",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem do andaime fachadeiro",
+    "Elevação de alvenaria de vedação"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-05",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 8,
+   "data": "2026-10-05",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Caminhão basculante",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Guincho de coluna",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 36.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 35.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Instalação de eletrodutos nas paredes"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-06",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 9,
+   "data": "2026-10-06",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 15.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Chapisco e reboco interno"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-07",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 10,
+   "data": "2026-10-07",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 9,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Pintor",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Bloco de concreto 14 cm",
+     "quantidade": 1.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 39.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 38.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Elevação de alvenaria de vedação"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-08",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 11,
+   "data": "2026-10-08",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 13,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 7,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 1.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 30.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Chapisco e reboco interno"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-09",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 12,
+   "data": "2026-10-09",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 19,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 1.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Chapisco e reboco interno"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-10",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 13,
+   "data": "2026-10-10",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 10,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Retroescavadeira JCB 3C",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 11.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Elevação de alvenaria de vedação"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-12",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 14,
+   "data": "2026-10-12",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão betoneira",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Argamassa colante AC-II",
+     "quantidade": 21.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Bloco de concreto 14 cm",
+     "quantidade": 15.0,
+     "unidade": "un",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 40.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Conferência de prumo e nível",
+    "Chapisco e reboco interno"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a2-2026-10-13",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 15,
+   "data": "2026-10-13",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 8,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Serra circular de bancada",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Argamassa colante AC-II",
+     "quantidade": 20.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 26.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Conferência de prumo e nível"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-14",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 16,
+   "data": "2026-10-14",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 11,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 5.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 17.0,
+     "unidade": "lata",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Chapisco e reboco interno",
+    "Conferência de prumo e nível"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-15",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 17,
+   "data": "2026-10-15",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 15,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Guincho de coluna",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 26.0,
+     "unidade": "lata",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Instalação de eletrodutos nas paredes"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-16",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 18,
+   "data": "2026-10-16",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 20,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Conferência de prumo e nível",
+     "local": "Cobertura",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Compactador de solo (sapo)",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 19.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 36.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Elevação de alvenaria de vedação",
+    "Chapisco e reboco interno"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-17",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 19,
+   "data": "2026-10-17",
+   "autor": "Márcia Tavares",
+   "status": "AGUARDANDO_VALIDACAO",
+   "equipe": 13,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Chapisco e reboco interno",
+     "local": "4º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Elevação de alvenaria de vedação",
+     "local": "5º pavimento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Placa vibratória",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 24.0,
+     "unidade": "kg",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Bloco de concreto 14 cm",
+     "quantidade": 19.0,
+     "unidade": "un",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 31.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem do andaime fachadeiro"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a2-2026-10-19",
+   "obra_id": "de300000-0000-4000-8000-0000000000a2",
+   "numero": 20,
+   "data": "2026-10-19",
+   "autor": "Márcia Tavares",
+   "status": "PREENCHENDO",
+   "equipe": 0,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Instalação de eletrodutos nas paredes",
+     "local": "5º pavimento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Montagem do andaime fachadeiro",
+     "local": "Fachada",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [],
+   "equipamentos": [],
+   "materiais": [],
+   "proximas_atividades": [],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-09-26",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 1,
+   "data": "2026-09-26",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 6,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Guincho de coluna",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 40.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 8.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 5.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Escavação das valas do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-09-28",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 2,
+   "data": "2026-09-28",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 14,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 8,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 17.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Aço CA-60 5 mm",
+     "quantidade": 40.0,
+     "unidade": "kg",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 12.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem do baldrame"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a3-2026-09-29",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 3,
+   "data": "2026-09-29",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 10,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 3.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 38.0,
+     "unidade": "lata",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-09-30",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 4,
+   "data": "2026-09-30",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 16,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Caminhão betoneira",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 26.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação das vigas baldrame",
+    "Compactação e regularização do aterro"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-01",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 5,
+   "data": "2026-10-01",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 19,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 40.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 30.0,
+     "unidade": "sc",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 3.0,
+     "unidade": "un",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Escavação das valas do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-02",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 6,
+   "data": "2026-10-02",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Placa vibratória",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 37.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-03",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 7,
+   "data": "2026-10-03",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 11,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Eletricista",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Serra circular de bancada",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 27.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Compactação e regularização do aterro",
+    "Concretagem do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-05",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 8,
+   "data": "2026-10-05",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 11,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 6.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 2.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 21.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Impermeabilização do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-06",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 9,
+   "data": "2026-10-06",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 21,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 18.0,
+     "unidade": "kg",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Argamassa colante AC-II",
+     "quantidade": 35.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 29.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem do baldrame",
+    "Compactação e regularização do aterro"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-07",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 10,
+   "data": "2026-10-07",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 15,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Grua GT 550",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 16.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Impermeabilização do baldrame",
+    "Concretagem do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-08",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 11,
+   "data": "2026-10-08",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 19,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Cremalheira de obra",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 32.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 24.0,
+     "unidade": "un",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Escavação das valas do baldrame",
+    "Armação das vigas baldrame"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Chuva / condição climática",
+     "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": true
+    }
+   ]
+  },
+  {
+   "id": "demo-a3-2026-10-09",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 12,
+   "data": "2026-10-09",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 21,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 7,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Placa vibratória",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Retroescavadeira JCB 3C",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Bloco de concreto 14 cm",
+     "quantidade": 33.0,
+     "unidade": "un",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 12.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 10.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Escavação das valas do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-10",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 13,
+   "data": "2026-10-10",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 14,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Guincho de coluna",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Bloco de concreto 14 cm",
+     "quantidade": 5.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 13.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 6.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Impermeabilização do baldrame"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Falta de energia",
+     "descricao": "Queda de energia na rede da concessionária pela manhã.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a3-2026-10-12",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 14,
+   "data": "2026-10-12",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 10,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Grua GT 550",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 1.0,
+     "unidade": "kg",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 27.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Argamassa colante AC-II",
+     "quantidade": 34.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Compactação e regularização do aterro"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a3-2026-10-13",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 15,
+   "data": "2026-10-13",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 8,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Retroescavadeira JCB 3C",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Argamassa colante AC-II",
+     "quantidade": 19.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 27.0,
+     "unidade": "lata",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação das vigas baldrame",
+    "Impermeabilização do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-14",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 16,
+   "data": "2026-10-14",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 7,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Guincho de coluna",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 39.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Concretagem do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-15",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 17,
+   "data": "2026-10-15",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 13,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão betoneira",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 9.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Compactação e regularização do aterro"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-16",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 18,
+   "data": "2026-10-16",
+   "autor": "Juliano Rocha",
+   "status": "APROVADO",
+   "equipe": 20,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Concretagem do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Grua GT 550",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Brita 1",
+     "quantidade": 38.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 37.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 9.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Impermeabilização do baldrame"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Chuva / condição climática",
+     "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": true
+    }
+   ]
+  },
+  {
+   "id": "demo-a3-2026-10-17",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 19,
+   "data": "2026-10-17",
+   "autor": "Juliano Rocha",
+   "status": "AGUARDANDO_VALIDACAO",
+   "equipe": 18,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Compactação e regularização do aterro",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Armação das vigas baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Encanador",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Betoneira 400 L",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 27.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 39.0,
+     "unidade": "kg",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 25.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Impermeabilização do baldrame"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a3-2026-10-19",
+   "obra_id": "de300000-0000-4000-8000-0000000000a3",
+   "numero": 20,
+   "data": "2026-10-19",
+   "autor": "Juliano Rocha",
+   "status": "PREENCHENDO",
+   "equipe": 0,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Impermeabilização do baldrame",
+     "local": "Terreno",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Escavação das valas do baldrame",
+     "local": "Baldrame",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [],
+   "equipamentos": [],
+   "materiais": [],
+   "proximas_atividades": [],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-09-26",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 1,
+   "data": "2026-09-26",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 14,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Grua GT 550",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 8.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 31.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 27.0,
+     "unidade": "sc",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Terraplenagem e compactação do piso"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-09-28",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 2,
+   "data": "2026-09-28",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 13,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 8,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Grua GT 550",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 9.0,
+     "unidade": "m",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Instalação de telhas metálicas",
+    "Armação da laje de piso industrial"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-09-29",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 3,
+   "data": "2026-09-29",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 6,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Compactador de solo (sapo)",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Areia média lavada",
+     "quantidade": 1.0,
+     "unidade": "m³",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Prego 18x27",
+     "quantidade": 13.0,
+     "unidade": "kg",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Instalação de telhas metálicas",
+    "Içamento de vigas de cobertura"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Atraso de material",
+     "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-09-30",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 4,
+   "data": "2026-09-30",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 18,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Argamassa colante AC-II",
+     "quantidade": 1.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Brita 1",
+     "quantidade": 14.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Içamento de vigas de cobertura"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Chuva / condição climática",
+     "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": true
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-01",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 5,
+   "data": "2026-10-01",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 2,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-60 5 mm",
+     "quantidade": 30.0,
+     "unidade": "kg",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tábua de pinus 3 m",
+     "quantidade": 15.0,
+     "unidade": "un",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação da laje de piso industrial",
+    "Içamento de vigas de cobertura"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-02",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 6,
+   "data": "2026-10-02",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 11,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Bloco de concreto 14 cm",
+     "quantidade": 8.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 12.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 3.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Instalação de telhas metálicas"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Falta de energia",
+     "descricao": "Queda de energia na rede da concessionária pela manhã.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-03",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 7,
+   "data": "2026-10-03",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 1,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Argamassa colante AC-II",
+     "quantidade": 8.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 26.0,
+     "unidade": "lata",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 23.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Montagem de pilares pré-moldados"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-05",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 8,
+   "data": "2026-10-05",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 14,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Cremalheira de obra",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 39.0,
+     "unidade": "kg",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Terraplenagem e compactação do piso",
+    "Içamento de vigas de cobertura"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-06",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 9,
+   "data": "2026-10-06",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 15,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "COM_DEFEITO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Concreto usinado fck 30",
+     "quantidade": 4.0,
+     "unidade": "m³",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação da laje de piso industrial",
+    "Montagem de pilares pré-moldados"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-07",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 10,
+   "data": "2026-10-07",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 13,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Placa vibratória",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Tijolo cerâmico 9 furos",
+     "quantidade": 34.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Içamento de vigas de cobertura"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-08",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 11,
+   "data": "2026-10-08",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 19,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 4,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 9.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Içamento de vigas de cobertura",
+    "Montagem de pilares pré-moldados"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Outros",
+     "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+     "gravidade": "BAIXA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-09",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 12,
+   "data": "2026-10-09",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 13,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Grua GT 550",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 27.0,
+     "unidade": "kg",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Tijolo cerâmico 9 furos",
+     "quantidade": 28.0,
+     "unidade": "un",
+     "evento": "EM_FALTA"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação da laje de piso industrial",
+    "Terraplenagem e compactação do piso"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-10",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 13,
+   "data": "2026-10-10",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 6,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 3,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Brita 1",
+     "quantidade": 8.0,
+     "unidade": "m³",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 36.0,
+     "unidade": "sc",
+     "evento": "UTILIZADO"
+    },
+    {
+     "descricao": "Tijolo cerâmico 9 furos",
+     "quantidade": 35.0,
+     "unidade": "un",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Terraplenagem e compactação do piso",
+    "Içamento de vigas de cobertura"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Chuva / condição climática",
+     "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": true
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-12",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 14,
+   "data": "2026-10-12",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 14,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Técnico de segurança",
+     "quantidade": 2,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Bomba de concreto",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Guincho de coluna",
+     "status": "EM_USO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cal hidratada",
+     "quantidade": 14.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 1.0,
+     "unidade": "m",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Terraplenagem e compactação do piso"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Falta de energia",
+     "descricao": "Queda de energia na rede da concessionária pela manhã.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-13",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 15,
+   "data": "2026-10-13",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 28,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Montagem de pilares pré-moldados",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "INICIADA",
+     "progresso": 20
+    },
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Encanador",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pedreiro",
+     "quantidade": 6,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Caminhão basculante",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Serra circular de bancada",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Cimento CP-II 50 kg",
+     "quantidade": 28.0,
+     "unidade": "sc",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 40.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    },
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 12.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação da laje de piso industrial",
+    "Instalação de telhas metálicas"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Falta de energia",
+     "descricao": "Queda de energia na rede da concessionária pela manhã.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-14",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 16,
+   "data": "2026-10-14",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 12,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 80
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Mestre de obras",
+     "quantidade": 6,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 2,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Andaime fachadeiro",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Cremalheira de obra",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-50 10 mm",
+     "quantidade": 15.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Armação da laje de piso industrial"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-15",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 17,
+   "data": "2026-10-15",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 22,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 40
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 5,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Pintor",
+     "quantidade": 8,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 5,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Gerador 20 kVA",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Aço CA-60 5 mm",
+     "quantidade": 6.0,
+     "unidade": "kg",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Terraplenagem e compactação do piso"
+   ],
+   "ocorrencias_detalhe": []
+  },
+  {
+   "id": "demo-a4-2026-10-16",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 18,
+   "data": "2026-10-16",
+   "autor": "Márcia Tavares",
+   "status": "APROVADO",
+   "equipe": 8,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Terraplenagem e compactação do piso",
+     "local": "Pátio",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "CONCLUIDA",
+     "progresso": 100
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Carpinteiro",
+     "quantidade": 4,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Servente",
+     "quantidade": 1,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Mini carregadeira Bobcat",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Placa vibratória",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Retroescavadeira JCB 3C",
+     "status": "COM_DEFEITO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Tubo PVC esgoto 100 mm",
+     "quantidade": 7.0,
+     "unidade": "m",
+     "evento": "RECEBIDO"
+    }
+   ],
+   "proximas_atividades": [
+    "Içamento de vigas de cobertura"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Atraso de material",
+     "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-17",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 19,
+   "data": "2026-10-17",
+   "autor": "Márcia Tavares",
+   "status": "AGUARDANDO_VALIDACAO",
+   "equipe": 18,
+   "ocorrencias": 1,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Armação da laje de piso industrial",
+     "local": "Piso",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "INICIADA",
+     "progresso": 20
+    }
+   ],
+   "equipe_por_funcao": [
+    {
+     "funcao": "Armador",
+     "quantidade": 7,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Eletricista",
+     "quantidade": 3,
+     "horas": 8.0
+    },
+    {
+     "funcao": "Operador de máquinas",
+     "quantidade": 8,
+     "horas": 8.0
+    }
+   ],
+   "equipamentos": [
+    {
+     "nome": "Betoneira 400 L",
+     "status": "PARADO"
+    },
+    {
+     "nome": "Guincho de coluna",
+     "status": "EM_USO"
+    },
+    {
+     "nome": "Vibrador de imersão",
+     "status": "PARADO"
+    }
+   ],
+   "materiais": [
+    {
+     "descricao": "Eletroduto corrugado 3/4\"",
+     "quantidade": 2.0,
+     "unidade": "m",
+     "evento": "EM_FALTA"
+    },
+    {
+     "descricao": "Tinta acrílica fosca",
+     "quantidade": 27.0,
+     "unidade": "lata",
+     "evento": "UTILIZADO"
+    }
+   ],
+   "proximas_atividades": [
+    "Instalação de telhas metálicas",
+    "Terraplenagem e compactação do piso"
+   ],
+   "ocorrencias_detalhe": [
+    {
+     "tipo": "Atraso de material",
+     "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+     "gravidade": "MEDIA",
+     "impacto_cronograma": false
+    }
+   ]
+  },
+  {
+   "id": "demo-a4-2026-10-19",
+   "obra_id": "de300000-0000-4000-8000-0000000000a4",
+   "numero": 20,
+   "data": "2026-10-19",
+   "autor": "Márcia Tavares",
+   "status": "PREENCHENDO",
+   "equipe": 0,
+   "ocorrencias": 0,
+   "fotos": 0,
+   "atividades": [
+    {
+     "descricao": "Instalação de telhas metálicas",
+     "local": "Fechamento",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    },
+    {
+     "descricao": "Içamento de vigas de cobertura",
+     "local": "Estrutura",
+     "status": "EM_ANDAMENTO",
+     "progresso": 60
+    }
+   ],
+   "equipe_por_funcao": [],
+   "equipamentos": [],
+   "materiais": [],
+   "proximas_atividades": [],
+   "ocorrencias_detalhe": []
+  }
+ ],
+ "clima_com_chuva": {
+  "de300000-0000-4000-8000-0000000000a1": {
+   "2026-09-26": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "SOL",
+    "impactou": true
+   },
+   "2026-10-01": {
+    "manha": "SOL",
+    "tarde": "CHUVA",
+    "impactou": false
+   },
+   "2026-10-02": {
+    "manha": "CHUVA",
+    "tarde": "CHUVA",
+    "impactou": false
+   },
+   "2026-10-03": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-05": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA_FORTE",
+    "impactou": false
+   },
+   "2026-10-07": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA_FORTE",
+    "impactou": false
+   },
+   "2026-10-13": {
+    "manha": "SOL",
+    "tarde": "CHUVA",
+    "impactou": false
+   },
+   "2026-10-15": {
+    "manha": "NUBLADO",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-16": {
+    "manha": "SOL",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-17": {
+    "manha": "SOL",
+    "tarde": "CHUVA",
+    "impactou": false
+   },
+   "2026-10-19": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA_FORTE",
+    "impactou": false
+   }
+  },
+  "de300000-0000-4000-8000-0000000000a2": {
+   "2026-09-26": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "SOL",
+    "impactou": false
+   },
+   "2026-10-06": {
+    "manha": "NUBLADO",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-09": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-14": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA",
+    "impactou": false
+   }
+  },
+  "de300000-0000-4000-8000-0000000000a3": {
+   "2026-10-03": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA_FORTE",
+    "impactou": true
+   },
+   "2026-10-07": {
+    "manha": "CHUVA",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-08": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "SOL",
+    "impactou": false
+   },
+   "2026-10-16": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-19": {
+    "manha": "CHUVA",
+    "tarde": "CHUVA",
+    "impactou": false
+   }
+  },
+  "de300000-0000-4000-8000-0000000000a4": {
+   "2026-09-29": {
+    "manha": "SOL",
+    "tarde": "CHUVA",
+    "impactou": false
+   },
+   "2026-10-02": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-08": {
+    "manha": "CHUVA",
+    "tarde": "SOL",
+    "impactou": false
+   },
+   "2026-10-09": {
+    "manha": "CHUVA",
+    "tarde": "CHUVA",
+    "impactou": true
+   },
+   "2026-10-10": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA_FORTE",
+    "impactou": true
+   },
+   "2026-10-17": {
+    "manha": "CHUVA",
+    "tarde": "CHUVA",
+    "impactou": false
+   },
+   "2026-10-19": {
+    "manha": "CHUVA_FORTE",
+    "tarde": "CHUVA_FORTE",
+    "impactou": false
+   }
+  }
+ },
+ "ocorrencias_descritas": {
+  "de300000-0000-4000-8000-0000000000a1": {
+   "2026-09-29": {
+    "tipo": "Atraso de material",
+    "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-10-05": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   },
+   "2026-10-07": {
+    "tipo": "Chuva / condição climática",
+    "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": true
+   },
+   "2026-10-08": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   },
+   "2026-10-09": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   },
+   "2026-10-13": {
+    "tipo": "Atraso de material",
+    "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-10-14": {
+    "tipo": "Chuva / condição climática",
+    "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": true
+   },
+   "2026-10-17": {
+    "tipo": "Falta de energia",
+    "descricao": "Queda de energia na rede da concessionária pela manhã.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   }
+  },
+  "de300000-0000-4000-8000-0000000000a2": {
+   "2026-09-26": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   },
+   "2026-09-29": {
+    "tipo": "Chuva / condição climática",
+    "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": true
+   },
+   "2026-10-12": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   }
+  },
+  "de300000-0000-4000-8000-0000000000a3": {
+   "2026-09-28": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   },
+   "2026-10-08": {
+    "tipo": "Chuva / condição climática",
+    "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": true
+   },
+   "2026-10-10": {
+    "tipo": "Falta de energia",
+    "descricao": "Queda de energia na rede da concessionária pela manhã.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-10-12": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   },
+   "2026-10-16": {
+    "tipo": "Chuva / condição climática",
+    "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": true
+   }
+  },
+  "de300000-0000-4000-8000-0000000000a4": {
+   "2026-09-29": {
+    "tipo": "Atraso de material",
+    "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-09-30": {
+    "tipo": "Chuva / condição climática",
+    "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": true
+   },
+   "2026-10-02": {
+    "tipo": "Falta de energia",
+    "descricao": "Queda de energia na rede da concessionária pela manhã.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-10-08": {
+    "tipo": "Outros",
+    "descricao": "Vistoria da fiscalização no canteiro, sem apontamentos.",
+    "gravidade": "BAIXA",
+    "impacto_cronograma": false
+   },
+   "2026-10-10": {
+    "tipo": "Chuva / condição climática",
+    "descricao": "Chuva interrompeu a concretagem por cerca de 2 horas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": true
+   },
+   "2026-10-12": {
+    "tipo": "Falta de energia",
+    "descricao": "Queda de energia na rede da concessionária pela manhã.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-10-13": {
+    "tipo": "Falta de energia",
+    "descricao": "Queda de energia na rede da concessionária pela manhã.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-10-16": {
+    "tipo": "Atraso de material",
+    "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   },
+   "2026-10-17": {
+    "tipo": "Atraso de material",
+    "descricao": "Entrega de aço atrasou e atividades foram reordenadas.",
+    "gravidade": "MEDIA",
+    "impacto_cronograma": false
+   }
+  }
+ }
+}

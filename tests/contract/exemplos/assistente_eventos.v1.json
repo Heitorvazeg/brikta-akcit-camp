@@ -1,0 +1,8 @@
+[
+  {"event": "status", "data": {"etapa": "consultando_rdos", "texto": "Consultando RDOs…"}},
+  {"event": "citacao", "data": {"tipo": "RDO", "id": "rdo-aurora-2026-09-22", "rotulo": "RDO 22/09"}},
+  {"event": "token", "data": {"texto": "Foram "}},
+  {"event": "token", "data": {"texto": "64 pessoas-dia na semana."}},
+  {"event": "fim", "data": {"mensagem_id": "msg-1", "conversa_id": "cv-1", "seguintes": [{"texto": "E na semana anterior?"}], "uso": {"passos": 2, "tokens_entrada": 900, "tokens_saida": 40}}},
+  {"event": "erro", "data": {"codigo": "PROVEDOR_INDISPONIVEL", "mensagem": "O assistente está indisponível agora."}}
+]

@@ -1,0 +1,61 @@
+@startuml IA_C4_3_Assistente_Simplificado
+' Serviço de IA — Componentes do Assistente de Obra, versão simplificada (visão rápida; o detalhe está em IA_C4_3_Componentes.puml)
+' out/2026 · Fonte: ADR-06 revisado (passe do backend), ADR-07, ADR-11, api.md 4.13 e 7.3
+' ✓ = já existe no protótipo (IA-66). Tracejado = planejado.
+!pragma layout smetana
+!include <C4/C4_Component>
+!include ../../../docs/03-arquitetura/_estilos/c4.iuml
+
+LAYOUT_TOP_DOWN()
+
+title Assistente de Obra — Componentes (C4 nível 3, simplificado)
+caption Verde 1–7: uma pergunta ao Assistente  ·  Azul-escuro = segurança  ·  <&check> = já existe no protótipo  ·  Tracejado = planejado (BE-51 e pós-MVP)
+
+Person(gestor, "Gestor · Fiscal · Operador", "Pergunta sobre a obra.")
+Container_Ext(app, "App Mobile", "React Native", "Chat do Assistente.")
+Container_Ext(backend, "Backend", "NestJS", "Emite o passe <&check>; rotas de leitura dos dados da obra (BE-51).")
+
+Container_Boundary(ia, "Serviço de IA — Assistente") {
+
+  Component(borda, "Borda e API", "FastAPI · SSE · passe conferido localmente", "<&check> Confere o passe (assinatura, aud, validade); monta empresa, perfil e obras; abre o SSE. Limites e cota por plano: planejado.", $tags="seguranca")
+  Component(agente, "Agente", "laço próprio <&check> · framework na IA-64a", "Pensa, pede ferramenta, lê e responde. Limites de passos, tempo e tokens.", $tags="chave")
+  Component(reg, "Registro de ferramentas", "ferramentas/registro.py", "<&check> Porteiro: só leitura, argumentos válidos, obra entre as visíveis. Dado volta marcado como não confiável.", $tags="seguranca")
+  Component(ferr, "Ferramentas", "dados do RDO · busca nos textos · documentos", "<&check> De exemplo no protótipo. Reais: consultar_rdos pelo backend (BE-51); RAG e BIM depois.", $tags="futuro")
+  Component(cit, "Verificação de citações", "código nosso", "Citação inventada é removida; sem evidência: 'não encontrei nos registros'.", $tags="seguranca_futuro")
+  Component(risco, "Política de risco técnico", "classificador (RN59)", "Tema estrutural ou de segurança: orientação geral + fonte + 'confirme com o engenheiro responsável'.", $tags="seguranca_futuro")
+}
+
+ContainerDb(iadb, "Postgres da IA", "PostgreSQL + pgvector", "Conversas, índice, trace de custo.", $tags="futuro")
+System_Ext(prov, "Provedor de LLM", "Compatível com OpenAI (Groq no protótipo).")
+
+' ── caminho principal (1–7) ──
+Rel(gestor, app, "1. pergunta", $tags="fluxo")
+Rel(app, borda, "2. POST /mensagens (passe); resposta em SSE", $tags="fluxo")
+Rel(borda, agente, "3. pergunta + contexto (do passe)", $tags="fluxo")
+Rel(agente, reg, "4. pede ferramenta por nome", $tags="fluxo")
+Rel(reg, ferr, "5. valida e executa", $tags="fluxo")
+Rel_U(ferr, backend, "6. leitura dos dados da obra (BE-51; credencial a definir)", $tags="fluxo")
+Rel(agente, cit, "7. resposta com fontes", $tags="fluxo")
+Rel_U(cit, borda, "resposta conferida (SSE)", $tags="fluxo")
+
+' ── demais relações ──
+Rel(backend, app, "passe do Assistente (POST /assistente/sessao)", $tags="async")
+Rel(agente, risco, "tema de risco?", $tags="futuro")
+Rel(agente, prov, "LLM com ferramentas", "HTTPS · streaming")
+Rel(ferr, iadb, "busca nos textos e documentos (empresa e obra no SQL)", $tags="futuro")
+Rel(borda, iadb, "conversas e trace", $tags="futuro")
+
+legend right
+  <b>Legenda</b>
+  |<#0F3D2A>      | pessoa |
+  |<#2F6F4E>      | outro contêiner do Brikta |
+  |<#E7F2EA>      | peça central |
+  |<#FFFFFF>      | componente (<&check> = já existe) |
+  |<#E8EEF8>      | segurança (tracejado = prevista) |
+  |<#F1F3F2>      | planejado (tracejado) |
+  |<#175233>      | banco da IA |
+  |<#6B7570>      | serviço externo |
+  |<#1E8E3E>      | seta verde grossa: pergunta ao Assistente (1–7) |
+  |<#3B82C4>      | seta azul tracejada: assíncrono |
+endlegend
+@enduml

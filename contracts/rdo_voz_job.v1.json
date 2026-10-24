@@ -1,0 +1,396 @@
+{
+  "$defs": {
+    "AudioDoJob": {
+      "additionalProperties": false,
+      "properties": {
+        "capturado_em": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Capturado Em"
+        },
+        "checksum_sha256": {
+          "title": "Checksum Sha256",
+          "type": "string"
+        },
+        "content_type": {
+          "title": "Content Type",
+          "type": "string"
+        },
+        "duracao_seg": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duracao Seg"
+        },
+        "expira_em": {
+          "format": "date-time",
+          "title": "Expira Em",
+          "type": "string"
+        },
+        "tamanho_bytes": {
+          "exclusiveMinimum": 0,
+          "title": "Tamanho Bytes",
+          "type": "integer"
+        },
+        "url": {
+          "description": "URL pré-assinada de LEITURA do áudio (curta duração).",
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "expira_em",
+        "content_type",
+        "tamanho_bytes",
+        "checksum_sha256"
+      ],
+      "title": "AudioDoJob",
+      "type": "object"
+    },
+    "CatalogoContexto": {
+      "additionalProperties": false,
+      "properties": {
+        "equipamentos": {
+          "items": {
+            "$ref": "#/$defs/ItemCatalogo"
+          },
+          "title": "Equipamentos",
+          "type": "array"
+        },
+        "funcoes": {
+          "items": {
+            "$ref": "#/$defs/ItemCatalogo"
+          },
+          "title": "Funcoes",
+          "type": "array"
+        },
+        "materiais": {
+          "items": {
+            "$ref": "#/$defs/ItemCatalogo"
+          },
+          "title": "Materiais",
+          "type": "array"
+        }
+      },
+      "title": "CatalogoContexto",
+      "type": "object"
+    },
+    "ContextoJob": {
+      "additionalProperties": false,
+      "properties": {
+        "catalogo": {
+          "$ref": "#/$defs/CatalogoContexto"
+        },
+        "glossario_empresa": {
+          "items": {
+            "$ref": "#/$defs/TermoGlossario"
+          },
+          "title": "Glossario Empresa",
+          "type": "array"
+        },
+        "obra": {
+          "$ref": "#/$defs/ObraContexto"
+        },
+        "rdo_atual": {
+          "$ref": "#/$defs/RdoAtual"
+        },
+        "ultimos_rdos": {
+          "items": {
+            "$ref": "#/$defs/ResumoRdoAnterior"
+          },
+          "title": "Ultimos Rdos",
+          "type": "array"
+        }
+      },
+      "required": [
+        "obra"
+      ],
+      "title": "ContextoJob",
+      "type": "object"
+    },
+    "ItemCatalogo": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "nome": {
+          "title": "Nome",
+          "type": "string"
+        },
+        "unidade_padrao": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unidade Padrao"
+        }
+      },
+      "required": [
+        "id",
+        "nome"
+      ],
+      "title": "ItemCatalogo",
+      "type": "object"
+    },
+    "ItemRdoAtual": {
+      "additionalProperties": true,
+      "description": "Item já existente no rascunho. Campos específicos variam por seção (extra permitido).",
+      "properties": {
+        "editado_manual": {
+          "title": "Editado Manual",
+          "type": "boolean"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "origem": {
+          "enum": [
+            "MANUAL",
+            "IA"
+          ],
+          "title": "Origem",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "origem",
+        "editado_manual"
+      ],
+      "title": "ItemRdoAtual",
+      "type": "object"
+    },
+    "ObraContexto": {
+      "additionalProperties": false,
+      "properties": {
+        "localizacao": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Localizacao"
+        },
+        "nome": {
+          "title": "Nome",
+          "type": "string"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Status"
+        }
+      },
+      "required": [
+        "nome"
+      ],
+      "title": "ObraContexto",
+      "type": "object"
+    },
+    "OpcoesJob": {
+      "additionalProperties": false,
+      "properties": {
+        "idioma": {
+          "default": "pt-BR",
+          "title": "Idioma",
+          "type": "string"
+        }
+      },
+      "title": "OpcoesJob",
+      "type": "object"
+    },
+    "RdoAtual": {
+      "additionalProperties": false,
+      "properties": {
+        "atividades": {
+          "items": {
+            "$ref": "#/$defs/ItemRdoAtual"
+          },
+          "title": "Atividades",
+          "type": "array"
+        },
+        "equipamentos": {
+          "items": {
+            "$ref": "#/$defs/ItemRdoAtual"
+          },
+          "title": "Equipamentos",
+          "type": "array"
+        },
+        "equipes": {
+          "items": {
+            "$ref": "#/$defs/ItemRdoAtual"
+          },
+          "title": "Equipes",
+          "type": "array"
+        },
+        "materiais": {
+          "items": {
+            "$ref": "#/$defs/ItemRdoAtual"
+          },
+          "title": "Materiais",
+          "type": "array"
+        },
+        "ocorrencias": {
+          "items": {
+            "$ref": "#/$defs/ItemRdoAtual"
+          },
+          "title": "Ocorrencias",
+          "type": "array"
+        }
+      },
+      "title": "RdoAtual",
+      "type": "object"
+    },
+    "ResumoRdoAnterior": {
+      "additionalProperties": false,
+      "properties": {
+        "atividades_em_andamento": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Atividades Em Andamento",
+          "type": "array"
+        },
+        "data_referencia": {
+          "format": "date",
+          "title": "Data Referencia",
+          "type": "string"
+        },
+        "resumo": {
+          "title": "Resumo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data_referencia",
+        "resumo"
+      ],
+      "title": "ResumoRdoAnterior",
+      "type": "object"
+    },
+    "TermoGlossario": {
+      "additionalProperties": false,
+      "properties": {
+        "significado": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Significado"
+        },
+        "termo": {
+          "title": "Termo",
+          "type": "string"
+        }
+      },
+      "required": [
+        "termo"
+      ],
+      "title": "TermoGlossario",
+      "type": "object"
+    }
+  },
+  "$id": "rdo_voz_job.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audio": {
+      "$ref": "#/$defs/AudioDoJob"
+    },
+    "contexto": {
+      "$ref": "#/$defs/ContextoJob"
+    },
+    "data_referencia": {
+      "format": "date",
+      "title": "Data Referencia",
+      "type": "string"
+    },
+    "empresa_id": {
+      "title": "Empresa Id",
+      "type": "string"
+    },
+    "gravacao_id": {
+      "title": "Gravacao Id",
+      "type": "string"
+    },
+    "obra_id": {
+      "title": "Obra Id",
+      "type": "string"
+    },
+    "opcoes": {
+      "$ref": "#/$defs/OpcoesJob"
+    },
+    "rdo_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rdo Id"
+    },
+    "rdo_local_id": {
+      "title": "Rdo Local Id",
+      "type": "string"
+    },
+    "versao_contrato": {
+      "const": "rdo_voz_job.v1",
+      "default": "rdo_voz_job.v1",
+      "title": "Versao Contrato",
+      "type": "string"
+    }
+  },
+  "required": [
+    "empresa_id",
+    "obra_id",
+    "rdo_local_id",
+    "gravacao_id",
+    "data_referencia",
+    "audio",
+    "contexto"
+  ],
+  "title": "RdoVozJob",
+  "type": "object"
+}

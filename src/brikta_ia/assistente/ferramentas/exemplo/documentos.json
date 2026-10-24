@@ -1,0 +1,148 @@
+{
+  "documentos": [
+    {
+      "id": "doc-ipe-memorial",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "titulo": "Memorial descritivo - Bloco A",
+      "tipo": "MEMORIAL",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Memorial descritivo do Residencial Ipê Amarelo, Bloco A. Estrutura em concreto armado, fck mínimo de 30 MPa nos pilares e lajes. Cobrimento nominal das armaduras de 2,5 cm em lajes e 3,0 cm em vigas e pilares."
+        },
+        {
+          "n": 2,
+          "texto": "Lajes maciças de 12 cm no 2º pavimento. As formas devem ser conferidas quanto a prumo, nível e estanqueidade antes da concretagem. Desforma das lajes somente após 14 dias e liberação do responsável técnico."
+        },
+        {
+          "n": 3,
+          "texto": "Alvenaria de vedação em bloco cerâmico 14 cm, assentada com argamassa de cimento e areia. Vergas e contravergas em todos os vãos de portas e janelas."
+        }
+      ]
+    },
+    {
+      "id": "doc-ipe-estrutural",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "titulo": "Projeto estrutural - Laje do 2º pavimento",
+      "tipo": "PROJETO",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Planta de formas do 2º pavimento. Pilares P1 a P12 de 20x40 cm. Vigas V1 a V9 de 15x45 cm."
+        },
+        {
+          "n": 2,
+          "texto": "Armação da laje L2: barras CA-50 de 10 mm a cada 15 cm nas duas direções, malha positiva. Emendas por traspasse de 50 diâmetros. Contrapeso de escoramento a cada 1,0 m."
+        }
+      ]
+    },
+    {
+      "id": "doc-ipe-contrato",
+      "obra_id": "de300000-0000-4000-8000-0000000000a1",
+      "titulo": "Contrato de empreitada",
+      "tipo": "CONTRATO",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Prazo contratual de 14 meses a partir de 03/11/2025, com término previsto em 31/12/2026. Medições mensais no último dia útil."
+        },
+        {
+          "n": 2,
+          "texto": "Multa de 0,5% ao dia, limitada a 10% do valor, por atraso injustificado na entrega. Dias de chuva forte com impacto comprovado em RDO prorrogam o prazo."
+        }
+      ]
+    },
+    {
+      "id": "doc-aur-memorial",
+      "obra_id": "de300000-0000-4000-8000-0000000000a2",
+      "titulo": "Memorial descritivo - Torre 1",
+      "tipo": "MEMORIAL",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Memorial do Edifício Aurora, Torre 1. Estrutura em concreto armado com 12 pavimentos tipo. Vedação em bloco de concreto 14 cm."
+        },
+        {
+          "n": 2,
+          "texto": "Instalações elétricas embutidas em eletroduto corrugado 3/4 pol. Os eletrodutos devem ser fixados antes do chapisco e testados com arame guia."
+        },
+        {
+          "n": 3,
+          "texto": "Fachada com revestimento cerâmico sobre reboco. Uso obrigatório de andaime fachadeiro com tela de proteção e inspeção diária pela segurança do trabalho."
+        }
+      ]
+    },
+    {
+      "id": "doc-aur-ata",
+      "obra_id": "de300000-0000-4000-8000-0000000000a2",
+      "titulo": "Ata de reunião de obra 12",
+      "tipo": "ATA",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Reunião de 08/10/2026. Pendências: entrega do aço CA-50 atrasada em 3 dias; definição da cor da cerâmica de fachada; manutenção da grua. Responsável técnico: Renata Siqueira."
+        }
+      ]
+    },
+    {
+      "id": "doc-rec-memorial",
+      "obra_id": "de300000-0000-4000-8000-0000000000a3",
+      "titulo": "Memorial descritivo - Casa Recanto do Lago",
+      "tipo": "MEMORIAL",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Fundação em sapatas isoladas e vigas baldrame em concreto armado, fck 25 MPa. Profundidade mínima de 1,2 m, conforme sondagem SPT."
+        },
+        {
+          "n": 2,
+          "texto": "Impermeabilização do baldrame com tinta betuminosa em duas demãos e proteção mecânica antes do reaterro."
+        },
+        {
+          "n": 3,
+          "texto": "Aterro compactado em camadas de 20 cm, grau de compactação mínimo de 95% do Proctor normal."
+        }
+      ]
+    },
+    {
+      "id": "doc-rec-sondagem",
+      "obra_id": "de300000-0000-4000-8000-0000000000a3",
+      "titulo": "Relatório de sondagem SPT",
+      "tipo": "LAUDO",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Sondagem SPT com 4 furos. Nível d'água a 3,5 m. Solo argiloso até 2 m, com NSPT entre 6 e 9; silte arenoso abaixo disso. Capacidade de carga admissível de 2,0 kgf/cm² na cota da sapata."
+        }
+      ]
+    },
+    {
+      "id": "doc-gal-memorial",
+      "obra_id": "de300000-0000-4000-8000-0000000000a4",
+      "titulo": "Memorial descritivo - Galpão 2",
+      "tipo": "MEMORIAL",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Galpão logístico de 4.800 m². Estrutura em pilares pré-moldados de concreto e vigas de cobertura protendidas. Cobertura em telha metálica trapezoidal com isolamento termoacústico."
+        },
+        {
+          "n": 2,
+          "texto": "Piso industrial em concreto armado com fibras, espessura de 15 cm, juntas serradas a cada 5 m. Sobrecarga de projeto de 5 tf/m²."
+        }
+      ]
+    },
+    {
+      "id": "doc-gal-pre-moldado",
+      "obra_id": "de300000-0000-4000-8000-0000000000a4",
+      "titulo": "Plano de montagem dos pré-moldados",
+      "tipo": "PROJETO",
+      "paginas": [
+        {
+          "n": 1,
+          "texto": "Içamento com guindaste de 80 t. Vento acima de 40 km/h suspende a montagem. Cada pilar é escorado e só liberado após o grauteamento do cálice e 48 h de cura."
+        }
+      ]
+    }
+  ]
+}

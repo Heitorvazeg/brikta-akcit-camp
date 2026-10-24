@@ -1,0 +1,122 @@
+{
+  "servidores": {
+    "clima": {
+      "rotulo": "Previsão do tempo (MCP)",
+      "ferramentas": {
+        "previsao": {
+          "descricao": "Previsão de 5 dias por cidade. Argumentos: cidade.",
+          "previsao_por_cidade": {
+            "Goiânia": [
+              [
+                "Sol",
+                0
+              ],
+              [
+                "Pancadas de chuva",
+                12
+              ],
+              [
+                "Chuva forte",
+                38
+              ],
+              [
+                "Nublado",
+                2
+              ],
+              [
+                "Sol",
+                0
+              ]
+            ],
+            "Aparecida de Goiânia": [
+              [
+                "Sol",
+                0
+              ],
+              [
+                "Nublado",
+                1
+              ],
+              [
+                "Chuva forte",
+                30
+              ],
+              [
+                "Pancadas de chuva",
+                9
+              ],
+              [
+                "Sol",
+                0
+              ]
+            ],
+            "Senador Canedo": [
+              [
+                "Nublado",
+                1
+              ],
+              [
+                "Pancadas de chuva",
+                14
+              ],
+              [
+                "Chuva forte",
+                42
+              ],
+              [
+                "Nublado",
+                3
+              ],
+              [
+                "Sol",
+                0
+              ]
+            ],
+            "Trindade": [
+              [
+                "Sol",
+                0
+              ],
+              [
+                "Sol",
+                0
+              ],
+              [
+                "Pancadas de chuva",
+                8
+              ],
+              [
+                "Chuva forte",
+                25
+              ],
+              [
+                "Nublado",
+                2
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "indicadores": {
+      "rotulo": "Índices da construção (MCP)",
+      "ferramentas": {
+        "indice_custo": {
+          "descricao": "Índice de custo da construção. Argumentos: indice (INCC-M ou SINAPI-GO).",
+          "valores": {
+            "INCC-M": {
+              "referencia": "set/2026",
+              "variacao_mes_pct": 0.42,
+              "variacao_12m_pct": 6.1
+            },
+            "SINAPI-GO": {
+              "referencia": "set/2026",
+              "variacao_mes_pct": 0.35,
+              "variacao_12m_pct": 5.6
+            }
+          }
+        }
+      }
+    }
+  }
+}

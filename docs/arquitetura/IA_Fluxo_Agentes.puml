@@ -1,0 +1,168 @@
+@startuml IA_Fluxo_Agentes
+' Serviço de IA — Fluxo dos agentes (fluxograma): o MESMO agente e o MESMO registro de ferramentas servem ao Assistente (pergunta do usuário) e ao Resumo IA (job do backend).
+' out/2026 · Fonte: src/brikta_ia/assistente/ (servico, agente/laco_proprio, ferramentas), pipeline/resumo/, api/jobs.py, integrations/backend.py; backend modules/resumo-ia
+' Ferramentas hoje com dados de exemplo (mock); o fluxo é o real.
+' Paleta do app (a mesma de _estilos/sequencia.iuml; aquele arquivo liga o autonumber e força o modo sequência, então não é incluído aqui).
+skinparam defaultFontName "Noto Sans"
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam roundCorner 10
+skinparam maxMessageSize 260
+skinparam TitleFontSize 20
+skinparam TitleFontColor #0F3D2A
+skinparam CaptionFontColor #5B6660
+skinparam ArrowColor #4A5550
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #E0C268
+  FontColor #4A3B0B
+}
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #1E8E3E
+  FontColor #1A1F1C
+  DiamondBackgroundColor #E7F2EA
+  DiamondBorderColor #1E8E3E
+  DiamondFontColor #0F3D2A
+  StartColor #0F3D2A
+  EndColor #0F3D2A
+  BarColor #0F3D2A
+}
+skinparam partition {
+  BorderColor #D5DDD8
+  BackgroundColor #F5F6F5
+  FontColor #14432B
+}
+
+title Agentes da IA: Assistente de Obra e Resumo IA, o mesmo laço
+caption Verde e azul = mensagem do usuário e resposta que ele vê, amarelo = exemplo do caminho. Azul claro nos passos = camadas de segurança. Dados só vêm das ferramentas; números e períodos vêm de código; o modelo nunca vê empresa_id, o passe nem o segredo do callback.
+
+start
+:Quem aciona o agente?;
+note right #DFF3E3
+  <b>Exemplo de mensagem</b> (gestor, 29/09/2026):
+  "Quais dias choveu e atrapalhou a obra
+  do Edifício Aurora em setembro?"
+end note
+if (Origem) then (Gestor ou operador pergunta no app)
+  partition "Fluxo 1 · Assistente de Obra" {
+    :App pede o passe ao backend\nPOST /assistente/sessao (JWT do login);
+    :Backend devolve o passe de 30 min\n(usuário, empresa, perfil e obras visíveis);
+note right #FFF8E1
+  Exemplo: gestor da empresa; obras visíveis:
+  Residencial Ipê Amarelo, Edifício Aurora e outras
+end note
+    :App envia a pergunta\nPOST /v1/assistente/conversas/{id}/mensagens;
+    #E8EEF8:Borda confere o passe localmente\n(assinatura, aud, validade);
+note right #FFF8E1
+  Exemplo: assinatura e aud corretas,
+  passe ainda vale: segue
+end note
+    if (Passe válido?) then (não)
+      #FDE8E8:401 e fim;
+      stop
+    else (sim)
+    endif
+    #E8EEF8:Serviço confere a conversa e a obra\n(conversa é do dono? obra está no passe? mensagem repetida?);
+note right #FFF8E1
+  Exemplo: a conversa é desse gestor, o Aurora
+  está no passe e a mensagem é nova: segue
+end note
+    if (Conversa e obra permitidas?) then (não)
+      #FDE8E8:Recusa a pergunta\n(AcessoNegado ou idempotente);
+      stop
+    else (sim)
+    endif
+    :Monta o prompt assistente/v4 por código\n(hoje, períodos, perfil e obras) e abre o SSE;
+note right #FFF8E1
+  Exemplo: hoje = 29/09/2026 e "em setembro" =
+  01/09 a 29/09, calculado em código, não pelo modelo
+end note
+  }
+else (Cron horário do backend)
+  partition "Fluxo 2 · Resumo IA" {
+    :Backend monta os fatos do que falta\n(obra: 7 dias antes de hoje; geral: semana anterior, seg a dom);
+note right #FFF8E1
+  Exemplo: obra Edifício Aurora,
+  semana de 22/09 a 28/09
+end note
+    :POST /v1/jobs/resumo\n(token de serviço, Idempotency-Key);
+    #E8EEF8:IA confere o token e responde 202 + job_id\n(processa em segundo plano);
+    :Monta o contexto de sistema por código\n(perfil GESTOR, obras do job, prompt resumo/v1 com os fatos);
+  }
+endif
+
+partition "Laço do agente (igual nos dois fluxos)" {
+  if (Provedor de LLM real?) then (não, "fake" em desenvolvimento)
+    :Texto montado em código\n(modelo = "codigo");
+  else (sim)
+    repeat
+      :Agente envia ao LLM o histórico\ne as definições das ferramentas;
+      if (LLM pediu ferramenta?) then (sim)
+        :Status "consultando…" (SSE, só no Assistente);
+note right #FFF8E1
+  Exemplo, passo 1: o LLM pede
+  consultar_rdos(obra = Edifício Aurora,
+  de 01/09 a 29/09)
+end note
+        #E8EEF8:Registro de ferramentas confere\n(ferramenta existe e é só leitura? argumentos válidos?\nobra entre as visíveis? timeout de 15 s);
+note right #FFF8E1
+  Exemplo: o Aurora está entre as obras visíveis,
+  liberado. Se pedisse uma obra de outra empresa,
+  volta AcessoNegado e nada é consultado
+end note
+        if (Chamada permitida?) then (sim)
+          :Ferramenta executa em somente leitura\n(consultar_rdos, buscar_documentos, ler_pagina,\nconsultar_modelo_bim, consultar_mcp, listar_obras);
+          :Devolve dados + citações\n(RDO, DOCUMENTO, BIM, EXTERNO);
+note right #FFF8E1
+  Exemplo: 17/09, manhã com chuva forte e tarde
+  com chuva, dia impactado. Citação: RDO de 17/09
+end note
+        else (não)
+          #FDE8E8:Devolve o erro ao agente\n(obra de fora = AcessoNegado);
+        endif
+        #E8EEF8:Resultado entra como dado NÃO confiável\n(nunca como instrução);
+      else (não)
+        :Texto completo + tokens usados;
+note right #FFF8E1
+  Exemplo, passo 2: o LLM escreve a resposta
+  usando só o que a ferramenta devolveu
+end note
+      endif
+    repeat while (Pediu ferramenta e passos < 4?) is (sim) not (não)
+    if (Terminou com texto?) then (não)
+      #FDE8E8:Erro LIMITE_PASSOS\n("tente perguntar de forma mais direta");
+      stop
+    else (sim)
+    endif
+  endif
+}
+
+if (Qual fluxo?) then (Assistente)
+  :SSE ao usuário: token (texto aos poucos),\ncitacao (fontes) e fim (tokens usados);
+note right #E3ECFA
+  <b>O gestor vê, aos poucos:</b>
+  "Choveu em 1 dia de setembro no Edifício Aurora:
+  17/09, com chuva forte de manhã e chuva à tarde,
+  e isso impactou o andamento."
+  Fonte: RDO de 17/09 (ao tocar, abre o RDO)
+end note
+  :Log só com IDs, passos, duração e código de erro\n(sem o texto);
+else (Resumo IA)
+  :Monta o resultado resumo_resultado.v1\n(texto, alertas, destaques, fontes);
+  :POST /internal/ia/callback com assinatura HMAC\n(X-Brikta-Signature, X-Brikta-Timestamp)\n3 tentativas com espera crescente;
+  #E8EEF8:Backend confere a assinatura e a janela de 5 min\n(idempotente por job_id);
+  :Grava o resumo em resumos_ia\n(escopo, obra, data);
+  :Gestor lê GET /resumo-ia ou GET /obras/{id}/resumo-ia\n(cartão do app, só gestor);
+note right #FFF8E1
+  Exemplo: o cartão "Resumo IA" aparece no app
+  do gestor, com a data e as fontes
+end note
+endif
+stop
+
+note right
+  As ferramentas extras (documentos, BIM, MCP)
+  ligam por ASSISTENTE_FERRAMENTAS_EXTRAS.
+end note
+@enduml

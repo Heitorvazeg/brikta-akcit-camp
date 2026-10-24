@@ -1,0 +1,125 @@
+@startuml IA_C4_3_Componentes
+' Serviço de IA — Componentes (C4 nível 3)
+' out/2026 · Fonte: src/brikta_ia/ e docs/planos/plano-de-implementacao.md (Seções 3, 4, 5, 9)
+' Leitura de cima para baixo: quem chama → entrada → Assistente (esquerda) e RDO por voz (direita) → base comum → bancos e serviços.
+' ✓ = já existe no código. Laranja = proposta de revisão (ainda não aprovada; hoje a ADR-11 proíbe texto para SQL; a fila com RabbitMQ também está em avaliação).
+!pragma layout smetana
+!include <C4/C4_Component>
+!include ../../../docs/03-arquitetura/_estilos/c4.iuml
+
+LAYOUT_TOP_DOWN()
+
+title Serviço de IA — Componentes (C4 nível 3)
+caption Verde 1–11: uma pergunta ao Assistente  ·  Azul-petróleo V1–V8: RDO por voz  ·  Azul-escuro = segurança  ·  <&check> = já existe no código
+
+Person(gestor, "Gestor · Fiscal · Operador", "Pergunta sobre a obra; grava o RDO por voz.")
+Container_Ext(app, "App Mobile", "React Native", "Chat do Assistente; gravação de áudio.")
+Container_Ext(backend, "Backend", "NestJS", "Dispara jobs, recebe o callback; emite o passe do Assistente; rotas de leitura (BE-51).")
+System_Ext(terceiros, "Assistentes de terceiros", "Claude/ChatGPT de clientes Corporativos.", $tags="futuro")
+
+Container_Boundary(ia, "Serviço de IA — Python 3.12 · FastAPI") {
+
+  Boundary(entrada, "Borda e segurança", $tags="seguranca") {
+    Component(auth, "Autenticação", "api/auth.py", "App: passe do Assistente emitido pelo backend (HS256, IA_TICKET_SECRET, iss/aud, 30 min), conferido localmente <&check> protótipo. Backend: token de serviço com rotação <&check>. Inválido ou vencido = 401 (TOKEN_EXPIRADO).", $tags="seguranca")
+    Component(cota, "Limites e cota", "por empresa e por plano", "Perguntas por plano (RN60), áudios por dia (RN56), orçamento mensal. Estourou = 429 LIMITE_EXCEDIDO.", $tags="seguranca_futuro")
+    Component(api, "API HTTP", "FastAPI · Pydantic em todo payload", "/health <&check> · /v1/jobs/rdo-voz · /v1/index/* · /v1/assistente/*: POST da pergunta, resposta em SSE.", $tags="chave")
+  }
+
+  Boundary(assist, "Assistente de Obra (protótipo IA-66; o resto pós-MVP)") {
+    Component(agente, "Agente", "laço próprio <&check> protótipo · LangGraph × PydanticAI (IA-64a)", "Pensa, pede ferramenta, lê, responde. Limites e streaming; a fábrica troca a implementação.")
+    Component(risco, "Política de risco técnico", "classificador (RN59)", "Estrutural, segurança do trabalho, elétrica, fundações: orientação geral + fonte + 'confirme com o engenheiro responsável'.", $tags="seguranca_futuro")
+    Component(reg, "Registro de ferramentas", "assistente/ferramentas/registro.py", "<&check> Porteiro: valida argumentos; injeta empresa, obras e o passe; bloqueia obra de fora; só leitura; timeout. Resultado volta marcado como dado não confiável.", $tags="seguranca")
+    Component(cit, "Verificação de citações", "código nosso", "Toda citação precisa ter vindo nesta pergunta; inventada é removida; sem evidência: 'não encontrei'.", $tags="seguranca_futuro")
+    Component(mcp_srv, "Servidor MCP brikta-dados", "servidor_mcp/", "Expõe o MESMO registro (mesmo JWT, mesmas regras).", $tags="futuro")
+
+    Boundary(ferr, "Ferramentas") {
+      Component(f_rdo, "Dados do RDO (degrau 1)", "ferramentas genéricas", "consultar_rdos(métrica, período, agrupar_por…); SQL montado pelo backend (BE-51). Hoje: ferramentas de exemplo <&check>.", $tags="proposta")
+      Component(f_sql, "SQL controlado (degrau 2)", "views + Row-Level Security", "LLM escreve SELECT só sobre views; RLS pelo JWT; somente leitura.", $tags="proposta")
+      Component(f_txt, "Busca nos textos do RDO", "full-text do Postgres", "Atividades, ocorrências, observações. Sem pgvector no início.", $tags="proposta")
+      Component(f_rag, "RAG de documentos", "pgvector + full-text", "Memorial, contrato, especificações.", $tags="futuro")
+      Component(f_tab, "Planilhas e BIM", "tabelas · IfcOpenShell", "Orçamento, cronograma e elementos do IFC como dados.", $tags="futuro")
+      Component(mcp_cli, "Cliente MCP", "SDK MCP", "Serviços externos; saída tratada como não confiável.", $tags="futuro")
+    }
+    Component(ingest, "Ingestão de documentos", "job indexar-documento", "PyMuPDF, planilhas, IFC.", $tags="futuro")
+  }
+
+  Boundary(voz, "RDO por voz (pipeline determinístico, MVP)") {
+    Component(fila, "Fila + Worker", "RabbitMQ · proposta em avaliação (hoje previsto: Postgres · SKIP LOCKED, ADR-02)", "Jobs e resultados do RDO por voz em exchanges (ia.jobs, ia.resultados), ack manual, retentativa e DLQ. Substituiria a fila em Postgres e o callback HMAC; ver D6 do backlog.", $tags="proposta")
+    Component(pipe, "Pipeline rdo_voz", "baixar · normalizar · STT · pós-processar · extrair · validar", "ffmpeg; glossário; structured output; evidência por item.", $tags="futuro")
+    Component(glos, "Glossário", "glossario/ · seed.csv", "Termos de obra para STT e correção.", $tags="futuro")
+    Component(dom, "Domínio e contratos", "domain/ · contracts/*.json", "RdoProposto v1 <&check>, estados <&check>, erros <&check>; JSON Schema <&check>.")
+  }
+
+  Boundary(base, "Base comum") {
+    Component(provs, "Providers", "providers/stt · llm · embeddings", "Protocol <&check> + versões falsas para testes <&check>; provedores reais trocáveis.", $tags="chave")
+    Component(integ, "Integrações", "integrations/", "HMAC <&check>; cliente do backend, storage, outbox de callbacks.")
+    Component(obs, "Observabilidade e avaliação", "structlog <&check> · Langfuse · eval/", "Custo, latência e ferramentas chamadas por pergunta; log sem conteúdo pessoal (só IDs e etapas).")
+  }
+}
+
+ContainerDb(iadb, "Postgres da IA", "PostgreSQL + pgvector", "Jobs, transcrições, glossário, outbox, conversas, índice, tabelas extraídas.")
+System_Ext(prov, "Provedores de IA", "STT · LLM · embeddings")
+ContainerDb_Ext(storage, "Storage S3", "Áudios e documentos")
+System_Ext(extmcp, "Serviços externos (MCP)", "Clima, Drive, ERP", $tags="futuro")
+
+' ── Assistente (1–11) ──
+Rel(gestor, app, "1. pergunta", $tags="fluxo")
+Rel(app, auth, "2. POST /mensagens (passe); resposta em SSE", $tags="fluxo")
+Rel(auth, cota, "3 · V2. identidade válida", $tags="fluxo")
+Rel(cota, api, "4 · V3. dentro do limite", $tags="fluxo")
+Rel(api, agente, "5. pergunta + ContextoExecucao", $tags="fluxo")
+Rel(agente, risco, "6. tema de risco? (RN59)", $tags="fluxo")
+Rel(agente, reg, "7. pede ferramenta por nome", $tags="fluxo")
+Rel(reg, f_rdo, "8. valida e executa", $tags="fluxo")
+Rel_U(f_rdo, backend, "9. leitura de dados da obra (BE-51; credencial a definir)", $tags="fluxo")
+Rel(agente, cit, "10. resposta com fontes", $tags="fluxo")
+Rel_U(cit, api, "11. resposta conferida (SSE)", $tags="fluxo")
+
+' ── RDO por voz (V1–V8; V2 e V3 passam pela mesma borda) ──
+Rel(backend, auth, "V1. job (token de serviço)", $tags="fluxo2")
+Rel(backend, app, "0. passe do Assistente (POST /assistente/sessao)", $tags="async")
+Rel(api, fila, "V4. enfileira", $tags="fluxo2")
+Rel(fila, pipe, "V5. executa", $tags="fluxo2")
+Rel(pipe, provs, "V6. STT / LLM", $tags="fluxo2")
+Rel(pipe, integ, "V7. RdoProposto", $tags="fluxo2")
+Rel_U(integ, backend, "V8. callback HMAC (até 24 h)", $tags="fluxo2")
+
+' ── demais relações ──
+Rel(pipe, glos, "")
+Rel(pipe, dom, "")
+Rel(pipe, storage, "baixa o áudio", $tags="futuro")
+Rel(agente, provs, "LLM com ferramentas", $tags="futuro")
+Rel(reg, f_sql, "")
+Rel(reg, f_txt, "")
+Rel(reg, f_rag, "")
+Rel(reg, f_tab, "")
+Rel(reg, mcp_cli, "")
+Rel(terceiros, mcp_srv, "MCP + JWT do usuário", $tags="futuro")
+Rel(mcp_srv, reg, "mesmo registro", $tags="futuro")
+Rel_U(f_sql, backend, "views com RLS (réplica)", $tags="futuro")
+Rel(f_txt, iadb, "", $tags="futuro")
+Rel(f_rag, iadb, "busca híbrida (empresa/obra no SQL)", $tags="futuro")
+Rel(f_tab, iadb, "", $tags="futuro")
+Rel(mcp_cli, extmcp, "", $tags="futuro")
+Rel(backend, ingest, "documento enviado / RDO alterado", $tags="async")
+Rel(ingest, storage, "lê", $tags="futuro")
+Rel(ingest, iadb, "trechos, embeddings, tabelas", $tags="futuro")
+Rel(provs, prov, "HTTPS")
+Rel(obs, prov, "", $tags="futuro")
+
+legend right
+  <b>Legenda</b>
+  |<#0F3D2A>      | pessoa |
+  |<#E7F2EA>      | peça central |
+  |<#FFFFFF>      | componente (<&check> = já existe) |
+  |<#F1F3F2>      | planejado (tracejado) |
+  |<#E8EEF8>      | segurança (tracejado = prevista) |
+  |<#FFF1DE>      | proposta de revisão, não aprovada |
+  |<#175233>      | banco da IA |
+  |<#2F6F4E>      | outro contêiner do Brikta |
+  |<#6B7570>      | serviço externo |
+  |<#1E8E3E>      | seta verde grossa: pergunta ao Assistente (1–11) |
+  |<#0E7C86>      | seta azul-petróleo grossa: RDO por voz (V1–V8) |
+  |<#3B82C4>      | seta azul tracejada: assíncrono |
+endlegend
+@enduml

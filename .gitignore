@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+*.egg-info/
+
+# Ambiente
+.env
+.env.*
+!.env.sample
+
+# Dados pessoais — áudios e documentos NUNCA entram no Git (LGPD).
+# O conjunto de avaliação fica num bucket privado; aqui só o manifest.
+eval/dados/
+*.m4a
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.aac
+
+# Relatórios de avaliação gerados localmente (os oficiais são commitados de propósito com git add -f)
+eval/relatorios/*.local.*
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store

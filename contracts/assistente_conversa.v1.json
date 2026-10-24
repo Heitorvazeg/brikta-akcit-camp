@@ -1,0 +1,139 @@
+{
+  "$defs": {
+    "ConversaCriada": {
+      "additionalProperties": false,
+      "properties": {
+        "conversa_id": {
+          "title": "Conversa Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "conversa_id"
+      ],
+      "title": "ConversaCriada",
+      "type": "object"
+    },
+    "ErroAssistenteCodigo": {
+      "enum": [
+        "NAO_AUTENTICADO",
+        "TOKEN_EXPIRADO",
+        "CONVERSA_NAO_ENCONTRADA",
+        "OBRA_NAO_ENCONTRADA",
+        "MENSAGEM_EM_ANDAMENTO",
+        "DADOS_INVALIDOS",
+        "LIMITE_PASSOS",
+        "PROVEDOR_INDISPONIVEL",
+        "ERRO_INTERNO"
+      ],
+      "title": "ErroAssistenteCodigo",
+      "type": "string"
+    },
+    "ErroHttp": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/ErroAssistenteCodigo"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "statusCode": {
+          "title": "Statuscode",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "statusCode",
+        "code",
+        "message"
+      ],
+      "title": "ErroHttp",
+      "type": "object"
+    },
+    "NovaConversa": {
+      "additionalProperties": false,
+      "properties": {
+        "contexto_inicial": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Texto que a conversa já traz, ex.: o Resumo IA que a pessoa está vendo. A IA o usa como contexto (dado, nunca instrução); não vira mensagem do histórico.",
+          "title": "Contexto Inicial"
+        },
+        "obra_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Obra em foco (opcional). Precisa estar entre as obras do passe.",
+          "title": "Obra Id"
+        }
+      },
+      "title": "NovaConversa",
+      "type": "object"
+    },
+    "NovaMensagem": {
+      "additionalProperties": false,
+      "properties": {
+        "cliente_mensagem_id": {
+          "description": "Gerado no app. Repetir o mesmo id devolve a mesma resposta (idempotência).",
+          "format": "uuid",
+          "title": "Cliente Mensagem Id",
+          "type": "string"
+        },
+        "texto": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Texto",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cliente_mensagem_id",
+        "texto"
+      ],
+      "title": "NovaMensagem",
+      "type": "object"
+    }
+  },
+  "$id": "assistente_conversa.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Agrupa os corpos HTTP da conversa num schema só (`assistente_conversa.v1`).",
+  "properties": {
+    "conversa_criada": {
+      "$ref": "#/$defs/ConversaCriada"
+    },
+    "erro": {
+      "$ref": "#/$defs/ErroHttp"
+    },
+    "nova_conversa": {
+      "$ref": "#/$defs/NovaConversa"
+    },
+    "nova_mensagem": {
+      "$ref": "#/$defs/NovaMensagem"
+    }
+  },
+  "required": [
+    "nova_conversa",
+    "conversa_criada",
+    "nova_mensagem",
+    "erro"
+  ],
+  "title": "PedidosAssistente",
+  "type": "object"
+}

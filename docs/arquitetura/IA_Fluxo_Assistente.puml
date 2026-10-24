@@ -1,0 +1,70 @@
+@startuml IA_Fluxo_Assistente
+' Serviço de IA — Laço do Assistente de Obra (desenho-alvo; o protótipo IA-66 já faz a entrada com o passe)
+' out/2026 · Fonte: docs/planos/plano-de-implementacao.md (ADR-06 revisado: passe do backend; ADR-07, ADR-11, Seção 9)
+!include ../../../docs/03-arquitetura/_estilos/sequencia.iuml
+
+title Assistente de Obra — uma pergunta do começo ao fim (desenho-alvo)
+caption Azul = camadas de segurança. O modelo nunca vê empresa_id nem o passe; números vêm do banco; resposta sem evidência = "não encontrei nos registros".
+
+actor "Gestor\n(app)" as u
+box "Serviço de IA" #F5F6F5
+participant "Borda\n(passe, limites)" as borda #E8EEF8
+participant "API do Assistente\n(FastAPI, SSE)" as api
+participant "Agente\n(framework + LLM)" as ag
+participant "Registro de\nferramentas" as reg #E8EEF8
+participant "Verificação\nde citações" as cit #E8EEF8
+database "Postgres da IA\n(índice, tabelas)" as ia
+end box
+box "Backend" #E7F2EA
+participant "Backend\n(dados do RDO)" as be
+end box
+
+== Entrada: quem é e se pode perguntar ==
+u -> be : POST /api/v1/assistente/sessao (JWT do login)\numa vez por sessão, não por pergunta
+be -> be : confere o usuário no banco;\nlista as obras visíveis (regra do GET /obras)
+be --> u : passe de 30 min (IA_TICKET_SECRET, aud brikta-ia):\nusuário, empresa, perfil e obras visíveis
+u -> borda : POST /v1/assistente/conversas/{id}/mensagens\n"Quantos pedreiros em média na Ipê semana passada?\nTeve atraso?" (Authorization: Bearer passe)
+borda -> borda : confere o passe localmente, sem chamar o backend\n(assinatura, aud, exp)
+alt passe inválido ou vencido
+  borda --> u : 401 TOKEN_EXPIRADO (o app pede outro passe e reenvia,\na conversa continua)
+else cota do plano estourada (RN60)
+  borda --> u : 429 LIMITE_EXCEDIDO
+else ok
+  borda -> api : pergunta validada (Pydantic: tamanho, formato)
+end
+api -> api : ContextoExecucao = empresa, perfil,\nobras visíveis (do passe, nunca do modelo)
+api --> u : abre o SSE · status: "pensando…"
+api -> ag : pergunta + resumo da conversa\n(sem empresa_id nem passe)
+ag -> ag : classificador de risco técnico (RN59):\ntema estrutural/segurança? exige aviso
+
+== Laço do agente ==
+loop até 6 ferramentas, 30 s, teto de tokens
+  ag -> reg : consultar_rdos(obra='ipe', metrica='efetivo',\nperiodo=semana passada, agrupar_por='funcao')
+  reg -> reg : porteiro: ferramenta existe e é só leitura?\nargumentos válidos? 'ipe' está entre as visíveis?\n(obra de fora = AcessoNegado)
+  reg -> be : consulta ao backend (BE-51; credencial a definir:\nnatural = o passe, com o usuário conferido no banco)\n(no protótipo: dados de exemplo)
+  be -> be : SQL montado pelo backend\n(empresa e obra sempre aplicadas)
+  be --> reg : Pedreiro: média 4,2/dia + 5 RDOs (citações)
+  reg --> ag : dados + citações, marcados como\nconteúdo NÃO confiável (nunca instrução)
+  api --> u : SSE status: "consultando RDOs da semana…"
+
+  ag -> reg : buscar_nos_textos_do_rdo('atraso', obra='ipe', periodo)
+  reg -> ia : busca por palavras / híbrida\nWHERE empresa_id = … AND obra_id IN (visíveis)
+  ia --> reg : "Aço CA-50 chegou 2 dias atrasado" (RDO 25/09)
+  reg --> ag : trechos + citações (não confiáveis)
+end
+
+== Saída: o que volta para o usuário ==
+ag -> cit : resposta com marcações de fonte
+cit -> cit : cada citação veio NESTA pergunta?\ninventada: removida, baixa confiança
+cit --> api : resposta conferida (+ aviso RN59, se for o caso)
+api --> u : SSE token: texto aparecendo aos poucos
+api --> u : SSE citacao: RDO 25/09, RDOs da semana
+api --> u : SSE fim: custo da pergunta (conta na cota)
+api -> ia : grava conversa e trace (custo, ferramentas)\nlog só com IDs e etapas, sem o texto
+
+note over api, ag
+  Cancelar = o app fecha a conexão; o servidor percebe
+  e interrompe o agente (para de gastar tokens).
+  A próxima mensagem é um novo POST na mesma conversa.
+end note
+@enduml
